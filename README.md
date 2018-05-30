@@ -80,67 +80,55 @@ It is very important to avoid psychological harm in a virtual world:
 
 We need a balance to let all people feel better, at least no bad.
 
-Trial is a way to 
+Audit is a way to reduce the harm. But traditional audit is central and cost a lot. We need a decentral way to audit. The following is the design:
 
-审核就是一种避免其中的人受到伤害的手段，但传统的审核都是中心化的，而且费时费力。我们需要一种去中心化的审核方式，所以制定了下面这几个用户可以有的权力： 
+1，Revenge: users can revenge other when they feel they are unhappy.
 
-1，复仇：人们可以对让他们不高兴的动作进行复仇，但复仇不能被滥用； 
+2，Trial: users can record what occur just now (example: within 2 minutes) and publish the record. Everyone can judge the record and revenge to someone in the record.
 
-2，审判：人们可以录下他们刚刚经历的事情（比如2分钟内），让所有的人都可以对这段经历进行审判，以此来防止侵害的发生；
+In special environment, such as private zone, users can invalidate the ability of Revenge and Trial, to avoid the abuse of them.
 
-3，豁免：在特殊情况下，比如私人区域，人们可以约定复仇和审判无效化，以防止复仇和审判被滥用； 
-
-4, 监察：监护人可以让提供给孩子他们的一个帐号，但这个帐号他们可以监察所有行动。对于孩子们来说，自己花钱去建立一个帐号或许是他们摆脱监护人的方法。
+3, Guardian：Parent can provide an account to their children, and they can watch all actions of this account at any time and can take control of the account at any time. If young men do not like the watch of parent, they can create an account themselves.
 
 
-#### 复仇与审判 
+#### Revenge & Trial
 
-由于拥有代币多的人对社区有更多的认同感，更能代表社区的利益。所以可以通过代币的互锁来实现用户自发的审核。
+- Revenge: a user can lock his(her) token, to lock their user's token;
 
-- 复仇：人们可以通过锁定自己的代币，来使得其他人的代币被锁定； 
-
-  比如：小明觉得小王的行为不好，他可以锁定自己10个代币，来换取小王10个代币的锁定，这时，如果小王只有9个代币，这9个将都被锁定，并且由于未锁定的代币数不足0个，他将在1分钟后被强制下线。 
+  Example: John do not like the action of Mike just now. John can lock Mike's 10 tokens by locking his 10 tokens. If Mike only has 9 unlock token, he will be drive out of game.
 
 
-- 审判：人们觉得正义在自己这方的时候，可以对之前一段场景（比如：2分钟）进行录像，并把录像公之于众，让大家来对录像中出现的所有人进行评价，并使用自己的代币来锁定 被审判者（所有录像中出现的人物）的代币； 为了避免有人故意截取片段来混淆视听，录像必须足够长； 
+- Trial: when a user do not like the action of other , he(she) can record and publish the record. Everyone can revenge to all of the users in the record.
 
-- 豁免：录像只允许在公共空间进行，在隐私空间，录像可能会侵犯用户的合理权力，所以在这些地方，需要对录像进行禁止。而因此就无法进行审判。这时，我们称之为豁免。
-私有空间的规则可以由主人进行修改，比如：是否允许录像、是否允许复仇。 
-
-复仇和被复仇的人，都可以将双方拉上审判。 
+A bad environment will harm users who have lots of token, and they tend to protect the effiency of the virtual world and do the justice.
 
 
-#### 审判分区 
+#### District 
 
-由于不同的人有不同的圈子和生活习惯，如果不进行分类，他们之间会起冲突。比如：一个人如果听到一些对别人常见，但他来说是侮辱性的词语，会对他的精神造成冲击，从而损失效率。 
+With different habit and interest, user can separate into different district.
 
-所以在不同区域，需要区域所有者进行设置不同审判规则，包括： 
+Also different district has different rules, including:
 
-1，赞同者和反对者的效果比例（不一定都是 1:1） 
+1, Trial effect, cost .vs. lock is not always 1 .vs. 1
 
-2，赞同和反对上限，即对被审判者的宽容程度（上限低的更加宽容，不赞成太多的惩罚；赞同上限 大于反对上限的更加宽容） 
+2, In a trial, can have the limit of locking token
 
-3，审判代理加成，允许投票来选择一些用户，他们的票有更大的倍数 （类似法官） 
+3, Delegate in trial, users can select several judge who have more locking multi effect than normal users
 
-4，区域代币： 
-    
-    不同的区域可以发行区域代币，在区域中的人会持续消耗或者获得该代币； 
-    
-    投票也使用该代币； 
-    
-    当代币数量少于一个值（可以是负数）时，用户将被驱逐。 
+4，Different token. User need to cost/get this token when stay in the district.
+
     
     
-#### 智能合约
+#### Contract
 
-智能合约可以看成一段多方共同约定的计算机代码，执行这段代码可以得到一定的结果。 
+A contract is some computer codes, execute these code will get expected result.
 
-由于合约的代码是透明的，多方都可以检查合约代码，并确保自己的利益得到保证。 
+Because all users can see the contract, everyone can check contract and prove their profit.
 
-EOSVR 将使用 智能合约 来维护 复仇 和 审判 的正确性。
+EOSVR use contract to validate revenge and audit.
 
 
-#### 结论 
+#### Conclusion
 
-EOSVR 是一个能充分满足人们交流需求的去中心化 DAPP，能实现自动化的监管、交易。
+EOSVR is a decentralize app that can communicate with each other, and can trade and audit automatically.
 
