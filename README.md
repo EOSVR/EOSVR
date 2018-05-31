@@ -96,7 +96,7 @@ Example: John do not like the action of Mike just now. John can lock Mike's 10 t
 
 A bad environment will harm users who have lots of token, and they tend to protect the effiency of the virtual world and do the justice.
 
-In special environment, such as private zone, users can invalidate the ability of Revenge and Trial, to avoid the abuse of them.
+In special environment, such as private zone, users can invalidate the ability of comment and Trial, to avoid the abuse of them.
 
 
 3, Guardian：Parent can provide an account to their children, and they can watch all actions of this account at any time and can take control of the account at any time. If young men do not like the watch of parent, they can create an account themselves.
@@ -124,7 +124,7 @@ A contract is some computer codes, execute these code will get expected result.
 
 Because all users can see the contract, everyone can check contract and prove their profit.
 
-EOSVR use contract to validate revenge and audit.
+EOSVR use contract to validate comment and trial.
 
 
 #### Conclusion
