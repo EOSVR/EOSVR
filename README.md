@@ -23,7 +23,7 @@ On the other side, users especially young man need more real virtual world. They
 
 
 
-#### EOSVR Components
+### EOSVR Components
 
 EOSVR has the following components:
 
@@ -66,7 +66,7 @@ Also the record can be traded with other user, also can use in a trial. (The fol
 Record is only in EOSVR client, not in server. And user can sign it and put the signature to EOS chain to validate it.
 
 
-#### Audit
+### Audit
 
 It is very important to avoid psychological harm in a virtual world:
 
@@ -80,27 +80,26 @@ It is very important to avoid psychological harm in a virtual world:
 
 We need a balance to let all people feel better, at least no bad.
 
+
 Audit is a way to reduce the harm. But traditional audit is central and cost a lot. We need a decentral way to audit. The following is the design:
 
-1，Revenge: users can revenge other when they feel they are unhappy.
+1，Comment: users can comment other (agree or disagree) when they feel happy or unhappy.
 
-2，Trial: users can record what occur just now (example: within 2 minutes) and publish the record. Everyone can judge the record and revenge to someone in the record.
+- Agree: give token to other,
+
+- Disagree: a user can lock his(her) token, to lock another user's token;
+
+Example: John do not like the action of Mike just now. John can lock Mike's 10 tokens by locking his 10 tokens. If Mike only has 9 unlock token, he will be drive out of game.
+
+
+2，Trial: users can record what occur just now (example: within 2 minutes) and publish the record. Everyone can judge the record and comment to someone in the record.
+
+A bad environment will harm users who have lots of token, and they tend to protect the effiency of the virtual world and do the justice.
 
 In special environment, such as private zone, users can invalidate the ability of Revenge and Trial, to avoid the abuse of them.
 
+
 3, Guardian：Parent can provide an account to their children, and they can watch all actions of this account at any time and can take control of the account at any time. If young men do not like the watch of parent, they can create an account themselves.
-
-
-#### Revenge & Trial
-
-- Revenge: a user can lock his(her) token, to lock their user's token;
-
-  Example: John do not like the action of Mike just now. John can lock Mike's 10 tokens by locking his 10 tokens. If Mike only has 9 unlock token, he will be drive out of game.
-
-
-- Trial: when a user do not like the action of other , he(she) can record and publish the record. Everyone can revenge to all of the users in the record.
-
-A bad environment will harm users who have lots of token, and they tend to protect the effiency of the virtual world and do the justice.
 
 
 #### District 
