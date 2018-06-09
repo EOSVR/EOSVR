@@ -17,10 +17,11 @@ Example: User need an account in facebook, also need an account in amazon. The f
 
 And in an decentralized app, encrypted user's data stored in lots of machines. User only need one account, and can allow certain user data in certain platform. At this time, user can login by one account in decentralized facebook and amazon. And use all user data in all platform. Such as: friendship, habit, etc.
 
-Blockchain is a implementation of decentralized technique, and EOS is the new block chain technology. It uses DPOS consensus, instead of POW consensus of BTC or ETH that take most of machine resource into useless mathematical problem. So it can trade thousands of times per second, and can deploy useful app.
+Blockchain is a implementation of decentralized technique, and EOS is the new block chain technology. It uses DPOS consensus, instead of POW consensus of BTC or ETH that take most of machine resource into useless mathematical problem. So it can trade thousands of times per second, and can deploy useful app. At the same time, BTC cost nearly tens of billions of dollars per year, and can only trade 7 times per second.
 
 On the other side, users especially young man need more real virtual world. They need more personalized character to find their friends in network. One world liked "Ready Player One" is what they need. In it, users can use their favorite character to enter real world and talk with their friends face-to-face.
 
+But in real world, how to avoid harm user is a big problem. In EOSVR, decentralized audit use to solve this problem.
 
 
 ### EOSVR Components
@@ -34,7 +35,6 @@ EOSVR has the following components:
 - File storage , use to store user's model, pictures and media files , etc. It supports private server to decentralize.
 
 - Room server , use to sync user's motion data and voice data. It will be open-source.
-
 
 
 #### Virtual World
@@ -61,7 +61,7 @@ EOSVR client can record the motions of users in it, and play them later. Because
 
 User can make 3D animation with it. 
 
-Also the record can be traded with other user, also can use in a trial. (The following)
+Also the record can be traded with other user, also can use in a complaint. (The following)
 
 Record is only in EOSVR client, not in server. And user can sign it and put the signature to EOS chain to validate it.
 
@@ -92,11 +92,11 @@ Audit is a way to reduce the harm. But traditional audit is central and cost a l
 Example: John do not like the action of Mike just now. John can lock Mike's 10 tokens by locking his 10 tokens. If Mike only has 9 unlock token, he will be drive out of game.
 
 
-2，Trial: users can record what occur just now (example: within 2 minutes) and publish the record. Everyone can judge the record and comment to someone in the record.
+2，Complaint: users can record what occur just now (example: within 2 minutes) and publish the record. Everyone can judge the record and comment to someone in the record.
 
 A bad environment will harm users who have lots of token, and they tend to protect the effiency of the virtual world and do the justice.
 
-In special environment, such as private zone, users can invalidate the ability of comment and Trial, to avoid the abuse of them.
+In special environment, such as private zone, users can invalidate the ability of comment and Complaint, to avoid the abuse of them.
 
 
 3, Guardian：Parent can provide an account to their children, and they can watch all actions of this account at any time and can take control of the account at any time. If young men do not like the watch of parent, they can create an account themselves.
@@ -108,11 +108,11 @@ With different habit and interest, user can separate into different district.
 
 Also different district has different rules, including:
 
-1, Trial effect, cost .vs. lock is not always 1 .vs. 1
+1, Complaint effect, cost .vs. lock is not always 1 .vs. 1
 
-2, In a trial, can have the limit of locking token
+2, In a Complaint, can have the limit of locking token
 
-3, Delegate in trial, users can select several judge who have more locking multi effect than normal users
+3, Delegate in Complaint, users can select several judge who have more locking multi effect than normal users
 
 4，Different token. User need to cost/get this token when stay in the district.
 
@@ -124,7 +124,7 @@ A contract is some computer codes, execute these code will get expected result.
 
 Because all users can see the contract, everyone can check contract and prove their profit.
 
-EOSVR use contract to validate comment and trial.
+EOSVR use contract to validate Comment and Complaint.
 
 
 #### Conclusion
