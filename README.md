@@ -1,5 +1,8 @@
 # EOSVR
 
+[EOSVR 0.1 Demo](https://github.com/EOSVR/EOSVR/blob/master/wallet-cn.md), can use as EOS wallet.
+
+
 Draft：2018/05/14 
 
 #### Abstract
