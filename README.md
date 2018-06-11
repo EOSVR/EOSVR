@@ -7,7 +7,7 @@ Draft：2018/05/14
 
 #### Abstract
 
-EOSVR is a virtual world based in EOS chain. User can enter the virtual world by iPhone, Android, PC, Mac or VR helmet. Use a customed virtual role to talk with other and create virtual objects.
+EOSVR is a virtual world based in EOS chain. Like Ready Player One, user can enter the virtual world by iPhone, Android, PC, Mac or VR helmet. Use a customed virtual role to talk with other and create virtual objects.
 
 It has decentralized server, and decentralized regulation. It reduces the cost of maintain world, and user have better experience than traditional app.
 
