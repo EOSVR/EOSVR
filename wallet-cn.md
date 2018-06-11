@@ -8,7 +8,7 @@
 
 - 购买或出售内存
 
-不推荐存有大量代币的帐号登录，所以没有加投票功能。
+- 投票
 
 
 [IOS安装链接](https://test.gvrcraft.com/download.html) 
