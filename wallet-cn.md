@@ -17,7 +17,7 @@ IOS是企业版，需要进行企业信任。在 设置 -> 通用 -> 设备管�
 
 [Android APK包](https://test.gvrcraft.com/eosvr.apk)
 
-测试帐号：guest1111112, 密码: 1111111111，选择：新用户 -> 输入帐号、密码 -> 导入
+测试帐号：guest1111112, 密码: 1111111111，私钥：5K7u48YEee38jXH684QZNzRUdC4mja6H3SzvBH5mn8h32unPjhq
 
 
 ### 如何保证安全性
