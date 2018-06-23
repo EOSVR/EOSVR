@@ -1,15 +1,15 @@
 # EOSVR
 
-[EOSVR 0.1 Demo](https://github.com/EOSVR/EOSVR/blob/master/wallet-cn.md), can use as EOS wallet.
+[中文版](README-cn.md)
+
+[EOSVR 0.2 Demo](https://github.com/EOSVR/EOSVR/blob/master/wallet-cn.md), can use as EOS wallet.
 
 
 Draft：2018/05/14 
 
 #### Abstract
 
-EOSVR is a virtual world based in EOS chain. Like Ready Player One, people are able to access the virtual world, communicate with others, and build virtual objects together through versatile devices, including:
-
-iPhone, Android, PC, Mac, or VR helmet. 
+EOSVR is a virtual world based in EOS chain. Like Ready Player One, people are able to access the virtual world, communicate with others, and build virtual objects together through versatile devices, including: iPhone, Android, PC, Mac, or VR helmet. 
 
 EOSVR reduces the maintanance cost and enhances user experiences by utilizing the decentralizing technology.
 

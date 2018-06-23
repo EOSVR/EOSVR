@@ -1,6 +1,8 @@
 # EOSVR
 
-[EOSVR 0.1 Demo 版](https://github.com/EOSVR/EOSVR/blob/master/wallet-cn.md), 可作为 EOS 钱包使用。
+[English](README.md)
+
+[EOSVR 0.2 Demo](https://github.com/EOSVR/EOSVR/blob/master/wallet-cn.md), 可作为 EOS 钱包使用。
 
 
 Draft：2018/05/14 
