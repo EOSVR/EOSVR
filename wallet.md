@@ -1,5 +1,7 @@
 ## EOSVR Demo
 
+[中文版](wallet-cn.md)
+
 For requirement of custom, we change the demo version and send out for EOS users. It provided:
 
 - Create lots of Accounts
