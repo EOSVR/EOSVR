@@ -5,11 +5,9 @@
 [EOSVR 0.2 Demo](https://github.com/EOSVR/EOSVR/blob/master/wallet-cn.md), can use as EOS wallet.
 
 
-Draft：2018/05/14 
-
 #### Abstract
 
-EOSVR is a virtual world based in EOS chain. Like Ready Player One, people are able to access the virtual world, communicate with others, and build virtual objects together through versatile devices, including: iPhone, Android, PC, Mac, or VR helmet. 
+EOSVR is a virtual world based in EOS chain. Like Ready Player One, people are able to access the virtual world, communicate with others, and exchange and build virtual objects together through versatile devices. 
 
 EOSVR reduces the maintanance cost and enhances user experiences by utilizing the decentralizing technology.
 
@@ -26,49 +24,63 @@ Blockchain is a implementation of decentralized technique, and EOS is the new bl
 
 On the other side, users especially young man need more real virtual world. They need more personalized character to find their friends in network. One world liked "Ready Player One" is what they need. In it, users can use their favorite character to enter real world and talk with their friends face-to-face.
 
-But in real world, how to avoid harm user is a big problem. In EOSVR, decentralized audit use to solve this problem.
+But in real world, how to avoid harm user is a big problem. In EOSVR, [decentralized audit](README.md#Audit) use to solve this problem.
 
 
 ### EOSVR Components
 
-EOSVR has the following components:
-
-- EOS Chain, use to store user data, including token and titles, etc.
-
-- Client, show the virtual world. User enter the world by it. Planned to support Windows, Mac, iOS, Android, also support VR Helmet like HTC vive and Oculus.
-
-- File storage , use to store user's model, pictures and media files , etc. It supports private server to decentralize.
-
-- Room server , use to sync user's motion data and voice data. It will be open-source.
+EOSVR has these components: Contracts in EOS Mainnet, File storage, Client APP, Scenario server.
 
 
-#### Virtual World
+#### EOS Chain
 
-EOSVR provide a 3D spaces to let different users talk together, like "Ready Player One".
+EOS Chain is a block-chain that run EOS system. It is transparent and safe. 
 
-User can show their customed model, or customed emotion. And talk with other users.
-
-User can trade models with each other with token.
+EOSVR use it to store user data, including token, user titles etc. The amount of these data is small but must be safe to store.
 
 
-#### Scenario
+#### Contract
 
-EOSVR allow user to create scenario and owner of scenario can set the parameters of the world. Example: gravity, if allow a stranger enter world, price of entrance, etc.
+A contract is some computer codes, execute these code will get expected result.
 
-Scenario is deployed in a room server, user can publish the room server in EOS chain to allow other user to join.
+Because all users can see the contract, everyone can check contract and prove their profit.
 
-Room server is open-source and everyone can deploy their room server.
+EOSVR use contract in EOS mainnet to validate Comment and Trade.
+
+
+#### File Storage
+
+File storage , use to store user's model, pictures and media files , etc. It supports private server to decentralize. Also the owner of model can sell his models to cover the fee of file storage.
+
+
+#### Client APP
+
+Client, show the virtual world. User enter the world by it. Planned to support Windows, Mac, iOS, Android, also support VR Helmet like HTC vive and Oculus.
+
+
+#### Scenario Server
+
+Scenario server, use to sync user's motion data and voice data. 
+
+- It is open-source and user can setup their servers. They can control the parameters of server. Example: allow strange enter, use which token.
+
+- After a scenario server setup, owner can use it privately, or publish it in EOS chain.
+
+- Each scenario provide a 3D space. Users can move in it, talk with each other or show kinds of models.
 
 
 #### Record and Replay
 
-EOSVR client can record the motions of users in it, and play them later. Because it only records the motion of objects, it will be very small compared with traditional video. And these record is 3D and user can view it in all directions freely.
+EOSVR client can record the motions of users in it, and play them later. This can be proof for the [audit](README.md#Audit). Also the record can be traded with other user, also can use in a complaint. (The following)
 
-User can make 3D animation with it. 
 
-Also the record can be traded with other user, also can use in a complaint. (The following)
+User can make 3D animation with it!
 
-Record is only in EOSVR client, not in server. And user can sign it and put the signature to EOS chain to validate it.
+Because it only records the motion of objects, it will be very small compared with traditional video. And these record is 3D and user can view it in all directions freely.
+
+This new kinds of animation even can partly replace traditional movie in the future.
+
+Note: Record is only in EOSVR client, not in server. And user can sign it and put the signature to EOS chain to validate it.
 
 
 ### Audit
@@ -121,18 +133,18 @@ Also different district has different rules, including:
 
 4，Different token. User need to cost/get this token when stay in the district.
 
-    
-    
-#### Contract
 
-A contract is some computer codes, execute these code will get expected result.
+#### Token & Trade
 
-Because all users can see the contract, everyone can check contract and prove their profit.
+EOSVR use EVR token as its base token. Different world have different token. 
 
-EOSVR use contract to validate Comment and Complaint.
+Users can trade with each other when they meet. They can also trade in trading world.
+
+
+Here is the [details](evr.md) about token and trade.
 
 
 #### Conclusion
 
-EOSVR is a decentralize app that can communicate with each other, and can trade and audit automatically.
+EOSVR is a decentralize app that can communicate with each other, and can trade and audit. It can build a new virtual world efficiently. 
 

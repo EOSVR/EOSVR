@@ -1,0 +1,10 @@
+{
+  "name": "airdrop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "eosiocpp -o airdrop.wasm airdrop.cpp"
+  },
+  "author": "EOSVR"
+}
