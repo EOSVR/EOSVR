@@ -1,6 +1,6 @@
 ## EOSVR Software Roadmap
 
-This document outlines the development plan from a high level and will be updated as progress is made toward version 1.0. 
+This document outlines the development plan from a high level. 
 
 Everything contained in this document is in draft form and subject to change at any time and provided for information purposes only. 
 
@@ -80,4 +80,8 @@ The goal of this phase is to fix bugs in public test, open limited features and 
 
 ### Phase 5 - More Implementation The Future
 
+- Build the world of different subjects. 
 
+- Digitalization of the user's skill in real world.
+
+And more...

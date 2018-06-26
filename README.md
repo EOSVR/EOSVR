@@ -24,7 +24,7 @@ Blockchain is a implementation of decentralized technique, and EOS is the new bl
 
 On the other side, users especially young man need more real virtual world. They need more personalized character to find their friends in network. One world liked "Ready Player One" is what they need. In it, users can use their favorite character to enter real world and talk with their friends face-to-face.
 
-But in real world, how to prevent injuries to user is a big problem. In EOSVR, [decentralized audit](#Audit) use to solve this problem.
+But in real world, how to prevent injuries to user is a big problem. In EOSVR, [decentralized audit](README.md#Audit) use to solve this problem.
 
 
 ### EOSVR Components
