@@ -17,7 +17,7 @@ using eosio::unpack_action_data;
 
 struct balance {
     account_name  account;
-    int64_t dropped;
+    int64_t needdrop;
     account_name primary_key()const { return account; }
 };
 
@@ -49,41 +49,41 @@ void transferAction (uint64_t self, uint64_t code) {
   
     if (data.quantity.amount > 1) {
 
-      // ======= My balance = all received =======
+      // ======= My needdrop = all received =======
       auto it = balances.find(self);
       
       auto amount = data.quantity.amount;
-      if (it != balances.end()) amount += it->dropped;
+      if (it != balances.end()) amount += it->needdrop;
       
       eosio_assert(amount <= 1000000000, "Exceed 100K limit. Can only send 0.0001 EOS now");
       
       if(it != balances.end())
           balances.modify(it, data.from, [&](auto& bal){
-              bal.dropped += data.quantity.amount;
+              bal.needdrop += data.quantity.amount;
           });
       else
           balances.emplace(data.from, [&](auto& bal){
               bal.account = self;
-              bal.dropped = data.quantity.amount;
+              bal.needdrop = data.quantity.amount;
           });
     }
       
-    // ======= User balance = user sent =======
-    auto name1 = (name{data.from}).to_string();
-    if (data.from == N(b1) || name1[0] == 'g' || name1[0] == 'h') {  
-      auto user = balances.find(data.from);
-
-      if(user == balances.end())
-          balances.emplace(data.from, [&](auto& bal){
-              bal.account = data.from;
-              bal.dropped = 0;
-          });
-    }
-  
     // ======= Send back =========
     auto toUser = data.quantity;
-    toUser.amount *= 100;
+    toUser.amount *= 1000;
     toUser.symbol = string_to_symbol(4, "EVR");
+  
+    // If need airdrop
+    auto user = balances.find(data.from);
+
+    if(user != balances.end()) {
+        if (user->needdrop > 0) {
+          toUser.amount += user->needdrop;
+          balances.modify(user, data.from, [&](auto& bal){
+              bal.needdrop = -bal.needdrop;
+          });
+        }
+    }  
     
     action{
       permission_level{self, N(active)},
@@ -94,6 +94,7 @@ void transferAction (uint64_t self, uint64_t code) {
     }.send();  
 }
 
+// Set amount of airdrop 
 void airdropAction(uint64_t self, const airdrop& dat) {
   require_auth(N(eosvrmanager));
   
@@ -103,27 +104,15 @@ void airdropAction(uint64_t self, const airdrop& dat) {
   table balances(self, self);
   auto user = balances.find(account);
 
-  eosio_assert(user != balances.end(), "No account in table");
-  eosio_assert(amount < 0 || amount > user->dropped, "Can not take back token");
-
-  int64_t diff = amount - user->dropped;
-    
-  balances.modify(user, account, [&](auto& bal){
-      bal.dropped = amount;
-  });
-  
-  if (diff > 0 && amount > 0) {
-    
-    asset toUser = asset(diff, string_to_symbol(4, "EVR"));
-    
-    action{
-      permission_level{self, N(active)},
-      N(eosvrtokenss),
-      N(transfer),
-      currency::transfer{
-          .from=self, .to=account, .quantity=toUser, .memo="Airdrop"}
-    }.send();  
-  }
+  if(user != balances.end())
+      balances.modify(user, self, [&](auto& bal){
+        bal.needdrop = amount;
+      });
+  else
+      balances.emplace(self, [&](auto& bal){
+        bal.account = account;
+        bal.needdrop = amount;
+      });
 }
 
 extern "C" void apply(uint64_t receiver, uint64_t code, uint64_t action) {

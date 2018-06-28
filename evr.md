@@ -6,31 +6,35 @@ EVR Token is a basic token for EOSVR ecosystem. Represent user's contribution to
 
 EOSVR will issue 10,000,000,000 EVR. 
 
-- 1,000,000,000 will be used to airdrop of EOS mainnet with 1:1.
+- 3,000,000,000 will be controlled by EOSVR group, including:
 
-- 3,000,000,000 will use to construct the EOSVR world and improve the ecosystem of EOSVR.
+  1, 1,000,000,000 will be used to airdrop of EOS mainnet with 1:1.
 
-- 6,000,000,000 will be locked 1 to 3 years from July 2018. Every year 2,000,000,000 EVR will be unlocked. And these EVR will improve the ecosystem of EOSVR. 
+  2, 1,000,000,000 will use for activity. Example: EOSVR start-up plan will use 100,000,000 EVR.
+
+  3, 1,000,000,000 will reward to the EOSVR group. And will lock 1 year and can not trade.
+
+- After the basic features of EOSVR finished, the remain 7,000,000,000 EVR will be released through trade system. And will send to the user who improve the EOS ecosystem. All trade reasons and results are in EOS chain and it is transparent. The user who have EVR token can decide the trade details and if a trade is successful.
 
 EVR token is issued by account "eosvrtokenss" . Its permission will be transfered to eosio to lock contract.
 
 
 ### Airdrop Plan
 
-Airdrop will open after 2018/07/01. EOSVR will send EVR to the registered user every several days (in most cases, will be 2 times per week). Airdrop method:
+Airdrop will open after 2018/07/01. Airdrop method:
 
-- All genesis account can send 0.0001 EOS to eosvrairdrop to register. Will return EVR by the amount of EOS when mainnet started. Airdrop is only available for the account which amount of EOS >= 50.
+- All genesis account can send 0.0001 EOS to eosvrairdrop to register. Will return EVR by the amount of EOS when mainnet started. Airdrop is only available for the account which amount of EOS >= 100.
 
-- Other account can not register in this way, but the EOS send to eosvrairdrop will be returned 100 times EVR. More details are in following chapter.
+- Other account can not register in this way, but the EOS send to eosvrairdrop will be returned 1000 times EVR. More details are in following chapter.
 
 Airdrop will be available in 2018.
 
 
 ### Start-up Plan
 
-EOSVR need some EOS to develop and deploy in EOS mainnet. So account eosvrairdrop also can receive the donate of EOS. In return, it will return 1000 times EVR.
+EOSVR need some EOS to buy resources and develop in EOS mainnet. So account eosvrairdrop also can receive the donate of EOS. In return, it will return 1000 times EVR.
 
-The completion of start-up plan need 50K EOS, and the limitation of donation is 200K EOS. After receive 200K EOS, account eosvrairdrop will not receive more donation. And can only send 0.0001 EOS for airdrop registration.
+The completion of start-up plan need 50K EOS, and the limitation of donation is 100K EOS. After receive 100K EOS, account eosvrairdrop will not receive more donation. And can only send 0.0001 EOS for airdrop registration.
 
 These are written in contract of eosvrairdrop. And can check the source code in airdrop folder of github.
 
@@ -93,3 +97,10 @@ TRD support lock others. If there are any conflict in trade, one can lock anothe
 At this time, a user with good name will be easier to trade. And we should avoid to trade with the random name users, because they may cheat you and run.
 
 
+### EVR Distribute Contract
+
+Some DAPP may use EVR to distribute the output, example: [name shop](https://github.com/eosaccount/eosnameshops/blob/master/README.md) 
+
+User can send their EVR to eosvrstorage. And when eosvrstorage receive token, user will receive token based on the amount of EVR. 
+
+This contract will be open-source and deploy on EOS mainnet at two weeks after EOSVR start-up finished.

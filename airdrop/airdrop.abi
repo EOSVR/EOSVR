@@ -8,7 +8,7 @@
         "base": "",
         "fields": [
             {"name":"account", "type":"account_name"},
-            {"name":"dropped", "type":"int64"}
+            {"name":"needdrop", "type":"int64"}
         ]
     },
     {
