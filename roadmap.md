@@ -39,14 +39,14 @@ Output: demo (maybe videos) that show these functions.
 - Talk with users nearby
 
 
-### Phase 2 - Alpha release - 2 month after start-up
+### Phase 2 - Alpha release - 2-3 month after start-up
 
 The goal of this phase is to integrate the features and make an app in platforms. (iOS, Android, Windows + HTC vive and Mac)
 
 Output: Demo APPs, user can download and try them. But the accounts data may lost after this phase.
 
 
-It includes the following:
+It may includes the following:
 
 - Allow to comment other user
 
@@ -57,7 +57,7 @@ It includes the following:
 - Publish a record
 
 
-### Phase 3 - Beta release - 3 month after start-up
+### Phase 3 - Beta release - 3-4 month after start-up
 
 The goal of this phase is to make the app more stable.
 
@@ -73,7 +73,7 @@ It includes the following:
 - Begin public test
 
 
-### Phase 4 - Release - 4-5 month after start-up
+### Phase 4 - Release - 4-6 month after start-up
 
 The goal of this phase is to fix bugs in public test, open limited features and optimize the code.
 
