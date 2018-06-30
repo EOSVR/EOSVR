@@ -1,11 +1,11 @@
 ### Offline wallet
 
-Offline wallet can allow your storage your private key in one smartphone in offline mode.
+Offline wallet can allow your store your private key in one smartphone in offline mode.
 And can sign the transaction in another online smartphone by offline wallet.
 
-The following are steps.
-
 Download: [EOSVR Wallet 0.2](https://github.com/EOSVR/EOSVR/blob/master/wallet-cn.md)
+
+The following are steps.
 
 #### Offline wallet
 

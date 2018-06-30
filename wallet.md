@@ -23,13 +23,21 @@ For requirement of custom, we change the demo version and send out for EOS users
 
 #### Installation 
 
-[IOS](https://test.gvrcraft.com/download.html) 
+- [IOS](https://test.gvrcraft.com/download.html)
 
-IOS is enterprise version. In Settings -> General -> Device Management, need to authorize the APP.
+- [Github IOS](http://eosnames.shop/download.html)
 
-[Android](https://test.gvrcraft.com/eosvr.apk)
+IOS is Enterprise APPS. In Settings -> General -> Device Management, need to authorize the APP.
 
-[Mac](http://test.gvrcraft.com/EOS_VR.dmg)
+
+- [Android APK](https://test.gvrcraft.com/eosvr.apk)
+
+- [Github Android APK](https://github.com/EOSVR/EOSVR/raw/master/bin/eosvr.apk)
+
+
+- [Mac](http://test.gvrcraft.com/EOS_VR.dmg)
+
+- [Github Mac](http://github.com/EOSVR/EOSVR/raw/master/bin/EOS_VR.dmg)
 
 
 #### Test account

@@ -10,26 +10,36 @@
 
 - 可以使用传统的帐号、密码系统，而不是对于普通人来说十分不方便的私钥体系；
 
-- 可以轻易修改密码（私钥）
+- 可以轻易修改密码（私钥）；
 
-- 转账
+- 转账；
 
 - 资源管理（内存、CPU、带宽）。包括解锁初始帐号的资源，手动取回被锁的EOS等；
 
-- 名字的购买与出售 [链接](http://eosnames.shop)
+- 帐号的购买与出售 [链接](http://eosnames.shop)；
 
-- 申请空投[EVR](evr-cn.md)代币
+- 申请空投[EVR](evr-cn.md)代币；
+
 
 
 #### 安装 
 
-[IOS安装](https://test.gvrcraft.com/download.html) 
+- [IOS安装](https://test.gvrcraft.com/download.html) 
+
+- [Github IOS](http://eosnames.shop/download.html)
 
 IOS是企业版，需要进行企业信任。在 设置 -> 通用 -> 设备管理 中进行信任操作。
 
-[Android安装](https://test.gvrcraft.com/eosvr.apk)
 
-[Mac安装](http://test.gvrcraft.com/EOS_VR.dmg)
+- [Android安装](https://test.gvrcraft.com/eosvr.apk)
+
+- [Github Android APK](https://github.com/EOSVR/EOSVR/raw/master/bin/eosvr.apk)
+
+
+- [Mac安装](http://test.gvrcraft.com/EOS_VR.dmg)
+
+- [Github Mac](http://github.com/EOSVR/EOSVR/raw/master/bin/EOS_VR.dmg)
+
 
 
 ### 公用帐号
