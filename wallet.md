@@ -1,10 +1,10 @@
-## EOSVR Demo
+## EOSVR Wallet
 
 [中文版](wallet-cn.md)
 
-For requirement of custom, we change the demo version and send out for EOS users. It provided:
+EOSVR wallet is a EOS wallet changed from the demo version of EOSVR. It is a complete decentralized wallet. No server except EOS mainnet needed. It provided:
 
-- Create lots of Accounts
+- Create lots of EOS Accounts
 
 - [Offline mode](offline-wallet.md) if want more safety
 
@@ -21,19 +21,23 @@ For requirement of custom, we change the demo version and send out for EOS users
 - Airdrop for [EVR](evr.md)
 
 
-#### Installation 
+#### Installation
+
+IOS is Enterprise APPS. In Settings -> General -> Device Management, need to authorize the APP.
 
 - [IOS](https://test.gvrcraft.com/download.html)
 
 - [Github IOS](http://eosnames.shop/download.html)
 
-IOS is Enterprise APPS. In Settings -> General -> Device Management, need to authorize the APP.
 
+Android
 
 - [Android APK](http://s.gvrcraft.com/bin/eosvr.apk)
 
 - [Github Android APK](https://github.com/EOSVR/EOSVR/raw/master/bin/eosvr.apk)
 
+
+Mac
 
 - [Mac](http://s.gvrcraft.com/bin/EOS_VR.dmg)
 
@@ -51,12 +55,12 @@ We may transfer a few EOS tokens to this account at times for testing. Use it to
 
 - Use offline mode to avoid the loss private key.
 
-- EOSVR do NOT have any server except web servers in web. 
+- EOSVR do NOT have any server except web servers in web.
 
 - This APP will NOT connect to any server except the EOS mainnet API site which you can change in settings. So it is impossible for EOSVR to stole custom's private key.
 
-- You can change your password in APP if you are afraid that maybe someone have stolen your private key. 
-When you change password, the APP will create a new private key with your username and password and replace 
+- You can change your password in APP if you are afraid that maybe someone have stolen your private key.
+When you change password, the APP will create a new private key with your username and password and replace
 the old one. And if you lose your private key, you can still recover it from your username and password.
 
 
@@ -64,7 +68,6 @@ the old one. And if you lose your private key, you can still recover it from you
 
 In APP, private key is created by username + password + salt (settings). When you enter the same username + password in another iPhone or Android device which have the same salt, you still can get your account. It is easy to transfer your account between your devices and do not need to remember your private key any more.
 
-Although, it is not so safe as original private key mode. It is much easier and user-friendly to customs. 
+Although, it is not so safe as original private key mode. It is much easier and user-friendly to customs.
 
 For the people who require high safety, they still can use the [offline private key mode](offline-wallet.md).
-

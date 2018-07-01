@@ -1,8 +1,8 @@
-## EOSVR Demo
+## EOSVR 钱包
 
 [English](wallet.md)
 
-了解到目前手机EOS钱包缺少的问题，我们将我们的Demo版经过一些修改，使得它可以方便给EOS用户使用。它有如下功能：
+EOSVR 钱包是一个从 EOSVR Demo 版修改而成的手机EOS钱包，它没有任何服务器，只需要EOS主网的支持，完全去中心化。有如下功能：
 
 - 创建并管理大量用户；
 
@@ -22,19 +22,23 @@
 
 
 
-#### 安装 
-
-- [IOS安装](https://test.gvrcraft.com/download.html) 
-
-- [Github IOS](http://eosnames.shop/download.html)
+#### 安装
 
 IOS是企业版，需要进行企业信任。在 设置 -> 通用 -> 设备管理 中进行信任操作。
 
+- [IOS安装](https://test.gvrcraft.com/download.html)
+
+- [Github IOS](http://eosnames.shop/download.html)
+
+
+Android版
 
 - [Android安装](http://s.gvrcraft.com/bin/eosvr.apk)
 
 - [Github Android APK](https://github.com/EOSVR/EOSVR/raw/master/bin/eosvr.apk)
 
+
+Mac版
 
 - [Mac安装](http://s.gvrcraft.com/bin/EOS_VR.dmg)
 
@@ -67,4 +71,3 @@ IOS是企业版，需要进行企业信任。在 设置 -> 通用 -> 设备管�
 你在APP中可以像之前的传统帐号一样，使用用户名和密码进行操作。它的实质是使用用户名，密码和salt来计算出唯一对应的一个私钥来。这样你可以轻松地对一个帐号进行设备迁移，并且不用进行抄写私钥什么的操作了。
 
 如果需要更高的加密要求，可以用[离线钱包（冷钱包）](offline-wallet.md)的方式。
-
