@@ -6,7 +6,7 @@ EOSVR 钱包是一个从 EOSVR Demo 版修改而成的手机EOS钱包，它没�
 
 - 创建并管理大量用户；
 
-- 支持[离线钱包（冷钱包）](offline-wallet.md)模式，保证私钥的安全；
+- 支持[离线钱包（冷钱包）](offline-wallet.md)模式，保证私钥的安全；[步骤介绍](how-to-offline-cn.md)
 
 - 可以使用传统的帐号、密码系统，而不是对于普通人来说十分不方便的私钥体系；
 
@@ -19,7 +19,6 @@ EOSVR 钱包是一个从 EOSVR Demo 版修改而成的手机EOS钱包，它没�
 - 帐号的购买与出售 [链接](http://eosnames.shop)；
 
 - 申请空投[EVR](evr-cn.md)代币；
-
 
 
 #### 安装
