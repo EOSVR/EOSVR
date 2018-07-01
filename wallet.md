@@ -30,12 +30,12 @@ For requirement of custom, we change the demo version and send out for EOS users
 IOS is Enterprise APPS. In Settings -> General -> Device Management, need to authorize the APP.
 
 
-- [Android APK](https://test.gvrcraft.com/eosvr.apk)
+- [Android APK](http://s.gvrcraft.com/bin/eosvr.apk)
 
 - [Github Android APK](https://github.com/EOSVR/EOSVR/raw/master/bin/eosvr.apk)
 
 
-- [Mac](http://test.gvrcraft.com/EOS_VR.dmg)
+- [Mac](http://s.gvrcraft.com/bin/EOS_VR.dmg)
 
 - [Github Mac](http://github.com/EOSVR/EOSVR/raw/master/bin/EOS_VR.dmg)
 

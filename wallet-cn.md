@@ -31,12 +31,12 @@
 IOS是企业版，需要进行企业信任。在 设置 -> 通用 -> 设备管理 中进行信任操作。
 
 
-- [Android安装](https://test.gvrcraft.com/eosvr.apk)
+- [Android安装](http://s.gvrcraft.com/bin/eosvr.apk)
 
 - [Github Android APK](https://github.com/EOSVR/EOSVR/raw/master/bin/eosvr.apk)
 
 
-- [Mac安装](http://test.gvrcraft.com/EOS_VR.dmg)
+- [Mac安装](http://s.gvrcraft.com/bin/EOS_VR.dmg)
 
 - [Github Mac](http://github.com/EOSVR/EOSVR/raw/master/bin/EOS_VR.dmg)
 
