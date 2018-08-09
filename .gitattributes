@@ -6,5 +6,5 @@
 
 *.ipa filter=lfs diff=lfs merge=lfs -text
 
-
+*.zip filter=lfs diff=lfs merge=lfs -text
 

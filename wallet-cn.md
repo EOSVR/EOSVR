@@ -16,38 +16,42 @@ EOSVR 钱包是一个从 EOSVR Demo 版修改而成的手机EOS钱包，它没�
 
 - 资源管理（内存、CPU、带宽）。包括解锁初始帐号的资源，手动取回被锁的EOS等；
 
-- 帐号的购买与出售 [链接](http://eosnames.shop)；
-
 - 申请空投[EVR](evr-cn.md)代币；
 
 
 #### 安装
 
-IOS是企业版，需要进行企业信任。在 设置 -> 通用 -> 设备管理 中进行信任操作。
+IOS版需要进行企业信任。在 设置 -> 通用 -> 设备管理 中进行信任操作。
 
-- [IOS安装](https://test.gvrcraft.com/download.html)
+- [IOS安装](https://evr.oss-cn-zhangjiakou.aliyuncs.com/setup/download.html)
 
 - [Github IOS](http://eosnames.shop/download.html)
 
 
 Android版
 
-- [Android安装](http://s.gvrcraft.com/bin/eosvr.apk)
+- [Android安装](http://evr.oss-cn-zhangjiakou.aliyuncs.com/setup/eosvr.apk)
 
 - [Github Android APK](https://github.com/EOSVR/EOSVR/raw/master/bin/eosvr.apk)
 
 
 Mac版
 
-- [Mac安装](http://s.gvrcraft.com/bin/EOS_VR.dmg)
+- [Mac安装](http://evr.oss-cn-zhangjiakou.aliyuncs.com/setup/EOS_VR.dmg)
 
 - [Github Mac](http://github.com/EOSVR/EOSVR/raw/master/bin/EOS_VR.dmg)
 
 
+Win版
+
+- [Win安装](http://evr.oss-cn-zhangjiakou.aliyuncs.com/setup/eosvr.zip)
+
+- [Github Win](http://github.com/EOSVR/EOSVR/raw/master/bin/eosvr.zip)
+
 
 ### 公用帐号
 
-对新手来说，可以使用我们的测试帐号 guest1111113来实验功能，在导入私钥时，点击『导入体验帐号』即可。
+可以使用测试帐号 guest1111113来实验功能。
 
 我们会不定期的给这个帐号转一点EOS代币，如果你正好在用，可以随意用来建立自己的帐号。
 

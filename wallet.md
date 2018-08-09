@@ -16,8 +16,6 @@ EOSVR wallet is a EOS wallet changed from the demo version of EOSVR. It is a com
 
 - Resources EOS Management (CPU, Net, RAM). Including unlock genesis account, and manual refund the account which auto-refund failed
 
-- Name Buy / Sell [LINK](http://eosnames.shop)
-
 - Airdrop for [EVR](evr.md)
 
 
@@ -25,30 +23,38 @@ EOSVR wallet is a EOS wallet changed from the demo version of EOSVR. It is a com
 
 IOS is Enterprise APPS. In Settings -> General -> Device Management, need to authorize the APP.
 
-- [IOS](https://test.gvrcraft.com/download.html)
+- [IOS](https://evr.oss-cn-zhangjiakou.aliyuncs.com/setup/download.html)
 
 - [Github IOS](http://eosnames.shop/download.html)
 
 
 Android
 
-- [Android APK](http://s.gvrcraft.com/bin/eosvr.apk)
+- [Android APK](http://evr.oss-cn-zhangjiakou.aliyuncs.com/setup/eosvr.apk)
 
 - [Github Android APK](https://github.com/EOSVR/EOSVR/raw/master/bin/eosvr.apk)
 
 
 Mac
 
-- [Mac](http://s.gvrcraft.com/bin/EOS_VR.dmg)
+- [Mac](http://evr.oss-cn-zhangjiakou.aliyuncs.com/setup/EOS_VR.dmg)
 
 - [Github Mac](http://github.com/EOSVR/EOSVR/raw/master/bin/EOS_VR.dmg)
 
 
+Windows
+
+- [Windows](http://evr.oss-cn-zhangjiakou.aliyuncs.com/setup/eosvr.zip)
+
+- [Github Windows](http://github.com/EOSVR/EOSVR/raw/master/bin/eosvr.zip)
+
+
+
 #### Test account
 
-We use an account guest1111113 for test. Click "Import Guest3" , instead of "Import Private Key", to use it.
+Can use an account guest1111113 for test.
 
-We may transfer a few EOS tokens to this account at times for testing. Use it to create your account freely.
+May transfer a few EOS tokens to this account at times for testing. Use it to create your account freely.
 
 
 #### Safety
