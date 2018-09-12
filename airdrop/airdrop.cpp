@@ -65,13 +65,10 @@ void transferAction (uint64_t self, uint64_t code) {
       eosio_assert(amount <= 1000000000, "Exceed 100K limit. Can only send 0.0001 EOS now");
       
       if(it != balances.end()) {
-          print("MODIFY");
           balances.modify(it, self, [&](auto& bal){
               bal.needdrop += data.quantity.amount;
           });
-          print("-");
       } else {
-          print("EMPLACE");
           balances.emplace(self, [&](auto& bal){
               bal.account = self;
               bal.needdrop = data.quantity.amount;
@@ -79,7 +76,6 @@ void transferAction (uint64_t self, uint64_t code) {
       }
     }
 
-      print("Send back");
     // ======= Send back =========
     auto toUser = data.quantity;
     toUser.amount *= 1000;
@@ -96,8 +92,6 @@ void transferAction (uint64_t self, uint64_t code) {
           });
         }
     }  
-
-    print("Ready to transfer back");
 
     action{
       permission_level{self, N(active)},
@@ -129,21 +123,6 @@ void airdropAction(uint64_t self, const airdrop& dat) {
       });
 }
 
-void regAction(uint64_t self, const reg& dat) {
-    account_name account = dat.account;
-    require_auth(account);
-
-    auto toUser = asset(1, string_to_symbol(4, "EVR"));
-
-    action{
-      permission_level{self, N(active)},
-      N(eosvrtokenss),
-      N(transfer),
-      currency::transfer{
-          .from=self, .to=account, .quantity=toUser, .memo=""}
-    }.send();
-}
-
 void removeallAction(uint64_t self, const reg& dat) {
     require_auth(N(eosvrmanager));
 
@@ -155,9 +134,10 @@ void removeallAction(uint64_t self, const reg& dat) {
 
     // Remove 5000 accounts per action
     for (uint64_t i = 0; i < 5000; i++) {
-        balances.erase(it);
-
+        auto old = it;
         it++;
+        balances.erase(old);
+
         if (it == balances.end()) break;
     }
 }
@@ -171,8 +151,8 @@ extern "C" void apply(uint64_t receiver, uint64_t code, uint64_t action) {
         if (action == N(airdrop)) {
             airdropAction(receiver, eosio::unpack_action_data<airdrop>());
         }
-        else if (action == N(reg)) {
-            regAction(receiver, eosio::unpack_action_data<reg>());
+        else if (action == N(removeall)) {
+            removeallAction(receiver, eosio::unpack_action_data<reg>());
         }
     }
 }

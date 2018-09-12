@@ -27,7 +27,6 @@
     ],
     "actions": [        
         {"name": "airdrop","type": "airdrop"},
-        {"name": "reg","type": "reg"},
         {"name": "removeall","type": "reg"},
     ],
     "tables": [{
