@@ -10,18 +10,25 @@
             {"name":"account", "type":"account_name"},
             {"name":"needdrop", "type":"int64"}
         ]
-    },
-    {
-      "name": "airdrop",
-      "base": "",
-      "fields": [
-          {"name": "account", "type": "account_name"},
-          {"name": "amount", "type": "int64"}
+    },{
+        "name": "airdrop",
+        "base": "",
+        "fields": [
+            {"name": "account", "type": "account_name"},
+            {"name": "amount", "type": "int64"}
+        ]
+    },{
+        "name": "reg",
+        "base": "",
+        "fields": [
+          {"name": "account", "type": "account_name"}
           ]
-      },
+        }
     ],
     "actions": [        
-      {"name": "airdrop","type": "airdrop"},
+        {"name": "airdrop","type": "airdrop"},
+        {"name": "reg","type": "reg"},
+        {"name": "removeall","type": "reg"},
     ],
     "tables": [{
         "name": "balance",

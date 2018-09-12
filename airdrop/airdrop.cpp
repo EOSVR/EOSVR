@@ -28,6 +28,13 @@ struct airdrop {
   EOSLIB_SERIALIZE( airdrop, (account)(amount) )
 };
 
+struct reg {
+  account_name account;
+
+  EOSLIB_SERIALIZE( reg, (account) )
+};
+
+
 using table = eosio::multi_index<N(balance), balance>;
 
 void transferAction (uint64_t self, uint64_t code) {
@@ -57,17 +64,22 @@ void transferAction (uint64_t self, uint64_t code) {
       
       eosio_assert(amount <= 1000000000, "Exceed 100K limit. Can only send 0.0001 EOS now");
       
-      if(it != balances.end())
-          balances.modify(it, data.from, [&](auto& bal){
+      if(it != balances.end()) {
+          print("MODIFY");
+          balances.modify(it, self, [&](auto& bal){
               bal.needdrop += data.quantity.amount;
           });
-      else
-          balances.emplace(data.from, [&](auto& bal){
+          print("-");
+      } else {
+          print("EMPLACE");
+          balances.emplace(self, [&](auto& bal){
               bal.account = self;
               bal.needdrop = data.quantity.amount;
           });
+      }
     }
-      
+
+      print("Send back");
     // ======= Send back =========
     auto toUser = data.quantity;
     toUser.amount *= 1000;
@@ -79,12 +91,14 @@ void transferAction (uint64_t self, uint64_t code) {
     if(user != balances.end()) {
         if (user->needdrop > 0) {
           toUser.amount += user->needdrop;
-          balances.modify(user, data.from, [&](auto& bal){
+          balances.modify(user, self, [&](auto& bal){
               bal.needdrop = -bal.needdrop;
           });
         }
     }  
-    
+
+    print("Ready to transfer back");
+
     action{
       permission_level{self, N(active)},
       N(eosvrtokenss),
@@ -115,14 +129,50 @@ void airdropAction(uint64_t self, const airdrop& dat) {
       });
 }
 
+void regAction(uint64_t self, const reg& dat) {
+    account_name account = dat.account;
+    require_auth(account);
+
+    auto toUser = asset(1, string_to_symbol(4, "EVR"));
+
+    action{
+      permission_level{self, N(active)},
+      N(eosvrtokenss),
+      N(transfer),
+      currency::transfer{
+          .from=self, .to=account, .quantity=toUser, .memo=""}
+    }.send();
+}
+
+void removeallAction(uint64_t self, const reg& dat) {
+    require_auth(N(eosvrmanager));
+
+    table balances(self, self);
+
+    auto it = balances.find(self);
+
+    eosio_assert(it != balances.end(), "Has no account left! ");
+
+    // Remove 5000 accounts per action
+    for (uint64_t i = 0; i < 5000; i++) {
+        balances.erase(it);
+
+        it++;
+        if (it == balances.end()) break;
+    }
+}
+
 extern "C" void apply(uint64_t receiver, uint64_t code, uint64_t action) {
     if (code == N(eosio.token) && action == N(transfer)) {
         transferAction(receiver, code);
     }
-  
+
     if (code == N(eosvrairdrop)) {
-      if (action == N(airdrop)) {
-        airdropAction(receiver, eosio::unpack_action_data<airdrop>());
+        if (action == N(airdrop)) {
+            airdropAction(receiver, eosio::unpack_action_data<airdrop>());
+        }
+        else if (action == N(reg)) {
+            regAction(receiver, eosio::unpack_action_data<reg>());
+        }
     }
-  }
 }
