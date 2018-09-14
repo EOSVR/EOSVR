@@ -9,10 +9,14 @@ EOSVR will issue 10,000,000,000 EVR.
 - 3,000,000,000 will be controlled by EOSVR group, including:
 
   1, 1,000,000,000 will be used to airdrop of EOS mainnet with 1:1.
+  Airdrop will stop at 2018/10/15. After that all remain EVR will put to reward plan. (Contract: eosvrrewards)
 
-  2, 1,000,000,000 will use for activity. Example: EOSVR start-up plan will use 100,000,000 EVR.
+  2, 1,000,000,000 will use for activity. 
+  Will reserve 100,000,000 in account: eosvr1111111. All other EVR will put to reward plan.
 
   3, 1,000,000,000 will reward to the EOSVR group. And will lock 1 year and can not trade.
+  Has transferred to [EVD](evd-cn.md) and lock 500M for 1 year, lock another 500M for 2 years. Can track by:
+      cleos get table eoslocktoken eosvr1111111 timelockss
 
 - After the basic features of EOSVR finished, the remain 7,000,000,000 EVR will be released through trade system. And will send to the user who improve the EOS ecosystem. All trade reasons and results are in EOS chain and it is transparent. The user who have EVR token can decide the trade details and if a trade is successful.
 
@@ -27,18 +31,12 @@ Airdrop will open after 2018/07/01. Airdrop method:
 
 - Other account can not register in this way, but the EOS send to eosvrairdrop will be returned 1000 times EVR. More details are in following chapter.
 
-Airdrop will be available in 2018.
+Airdrop will be available in October 2018.
 
 
 ### Start-up Plan
 
-EOSVR need some EOS to buy resources and develop in EOS mainnet. So account eosvrairdrop also can receive the donate of EOS. In return, it will return 1000 times EVR.
-
-The completion of start-up plan need 50K EOS, and the limitation of donation is 100K EOS. After receive 100K EOS, account eosvrairdrop will not receive more donation. And can only send 0.0001 EOS for airdrop registration.
-
-These are written in contract of eosvrairdrop. And can check the source code in airdrop folder of github.
-
-Once project start, will follow the [roadmap](roadmap.md). And if the plan do not complete, the project may defer or cancel.
+Do not receive enough EOS. We will change the plan.
 
 
 ### Other tokens in EOSVR

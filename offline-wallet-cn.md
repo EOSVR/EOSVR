@@ -4,7 +4,7 @@
 
 然后，使用这个离线钱包对在线钱包进行签名即可。
 
-下载地址：[EOSVR Wallet 0.2](https://github.com/EOSVR/EOSVR/blob/master/wallet-cn.md)
+下载地址：[EOSVR Wallet 0.9](https://github.com/EOSVR/EOSVR/blob/master/wallet-cn.md)
 
 
 下面是操作步骤：
