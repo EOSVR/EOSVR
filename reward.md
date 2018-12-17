@@ -39,14 +39,14 @@ cleos push action eoslocktoken transfer '{"from":"guest1111111", "to":"eosvrrewa
 
 - 其他, 平均分配。但当 type > 20 时，最大收益 = (支付 - 反对 * (type / 2 - 10)) * 支持转化率(默认1%)
 
-比如：EVD的主reward（evradvancers），就会使用 type = 31, 表示：不可撤回并且反对者的投票可以5倍有效于支持者。
+比如：EVD的主reward（evradvancers），就会使用 type = 41, 表示：不可撤回并且反对者的投票可以10倍有效于支持者。
 
 ```
 # 实验，0.1G ，500K每周
-cleos push action eoslocktoken transfer '{"from":"eosvrairdrop", "to":"eosvrrewards","quantity":"100000000.0000 EVD","memo":"500000,eosvrcomment,592200,20,31,10"}' -p eosvrairdrop
+cleos push action eoslocktoken transfer '{"from":"eosvrairdrop", "to":"eosvrrewards","quantity":"100000000.0000 EVD","memo":"500000,eosvrcomment,592200,20,41,10"}' -p eosvrairdrop
 
-# 全部，7.9G , 50M每周
-#cleos push action eoslocktoken transfer '{"from":"eosvrairdrop", "to":"eosvrrewards","quantity":"7900000000.0000 EVD","memo":"50000000,eosvrcomment,592200,20,31,10"}' -p eosvrairdrop
+# 全部，7.9G , 80M每周
+cleos push action eoslocktoken transfer '{"from":"eosvrairdrop", "to":"eosvrrewards","quantity":"7900000000.0000 EVD","memo":"80000000,evradvancers,592200,20,31,3"}' -p eosvrairdrop
 ```
 
 

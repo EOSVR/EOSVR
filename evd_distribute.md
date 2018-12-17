@@ -37,7 +37,7 @@ EVD发放的原则是对EVD系统做出更多贡献的，将得到更多的EVD�
 
 EVD 及其相关APP 将是完全开源的，奖励将用于促进 EVD 的代码优化和生态发展。
 
-其中 eosvrrewards 合约为奖励合约，将记录所有奖励信息。下面可以查看所有当前正在进行的奖励；
+其中 eosvrrewards 合约为[奖励合约](reward.md)，将记录所有奖励信息。下面可以查看所有当前正在进行的奖励；
 
 ```
 cleos get table eosvrrewards eosvrrewards rewardss
@@ -60,7 +60,7 @@ cleos get table eosvrrewards eosvrrewards rewardss
 
 - evradvancers: 推进主计划（未部署）。共计划投入 7.9G （79亿） EVD，发放 100次，每周发放一次，总共持续2年以上，每次给前20名平均发送，每次奖励最多 80M EVD，即每人最多奖励 4M EVD 一次。但这个主计划要比较保守，大家都赞同的奖励才允许被接收。所以：
     
-  - 奖励类型（rewardtype）将使用 31, 这表示：反对者的投票将5倍有效于支持者。假设一个提议有人反对，那么他的反对票将乘以5。
+  - [奖励类型（rewardtype）](reward.md#奖励类型)将使用 41, 这表示：反对者的投票将10倍有效于支持者。假设一个提议有人反对，那么他的反对票将乘以10。
     
   - 奖励限制系数将使用 3，而不是默认的10，这表示：投票后得到的EVD上限 = 加权后的赞同 * 3 / 1000。由于权重最多为10（1%每个月的限制），所以，1000 EVD的投票，最多一周可以收到的奖励 = 1000 * 10(权重) * 3(rewardlimit，限制系数) / 1000 = 30。
     
@@ -74,10 +74,10 @@ cleos get table eosvrrewards eosvrrewards rewardss
 
 - EVR 合约帐号 eosvrtokenss (已锁定)
 
-- EVR/EVD 交换合约 evrexchanges (测试中，估计将在2019年初锁定)
+- EVR/EVD 交换合约 [evrexchanges](exchange.md) (测试中，估计将在2019年初锁定)
 
-- EVR/EOS 交换合约 eosvrmarkets (测试中，估计将在2019年初锁定)
+- EVR/EOS 交换合约 [eosvrmarkets](ebancor.md) (测试中，估计将在2019年初锁定)
 
-- EVD 合约帐号 eoslocktoken （测试中，估计将在2019年第一季度锁定）
+- EVD 合约帐号 [eoslocktoken](evd.md) （测试中，估计将在2019年第一季度锁定）
 
 

@@ -66,7 +66,8 @@ cleos push action eoslocktoken transfer '{"from":"account1", "to":"eoslocktoken"
 
 注意：一个帐号要抵押的子链 chain_id 必须第一次时写对，因为之后无法更改，再转账给 eoslocktoken 只会增加抵押的数量。
 
-9，哈希时间锁，设置一笔带密码的交易。在一段时间内任何人只要公布了密码，交易就会成功。否则，任何人都可以在时间到后回滚交易。
+<div id="hash"></div>
+9，#HASH# 表示哈希时间锁，设置一笔带密码的交易。在一段时间内任何人只要公布了密码，交易就会成功。否则，任何人都可以在时间到后回滚交易。
 
 ```
 # account1 发送 account2 10个EVD，1天到期
