@@ -1,150 +1,85 @@
-# EOSVR
+## 信用方案实现 - EVD
 
-[中文版](README-cn.md)
+#### 简介
 
-[EOSVR 0.2 Demo](https://github.com/EOSVR/EOSVR/blob/master/wallet-cn.md), can use as EOS wallet.
+EVD是一种[信用解决方案](intro.md)。它实现了信用方案所需要的功能，参见[合约EVD](evd.md)：
 
+- 互相锁定：一个账户可以锁定另一个账户的信用点；
 
-#### Abstract
+- 延迟交易：用户可以设置何时交易到账；
 
-EOSVR is a virtual world based in EOS chain. Like Ready Player One, people are able to access the virtual world, communicate with others, and exchange and build virtual objects together through versatile devices. 
+- 限制转出：用户可以设置账户每个月允许转出的百分比；
 
-EOSVR reduces the maintanance cost and enhances user experiences by utilizing the decentralizing technology.
+- 多笔交易同步：为了支持跨链交易，用户可以给每笔交易设置一个密码和期限。之后用户可以公布密码让交易全部成功，或者不公布密码，让交易全部失败；
 
+- 快速执行：它部署在EOS链上，数秒就可以完成一个事务(Transaction)，几十秒就可以全网确认；
 
-#### Background
+- [跨链传输](sidelink.md)：允许多个EOS链间进行交易，并且一个EOS链上的账户A，可以把信用点传输给另一个EOS链上的账户B。这使得部署一个大范围、低成本的信用网络成为可行。
 
-People need to communicate in network, but currently all app is centralized. Because server, bandwidth, maintain and regulation cost lots of money, centralized platform need to use the data privately. User need register a new account when they play in a new platform. And all data between these platform can not sync.
 
-Example: User need an account in facebook, also need an account in amazon. The friendship information in facebook can not be used by amazon. And the bought information in amazon can not be used by facebook.
+#### 支持APP
 
-And in an decentralized app, encrypted user's data stored in lots of machines. User only need one account, and can allow certain user data in certain platform. At this time, user can login by one account in decentralized facebook and amazon. And use all user data in all platform. Such as: friendship, habit, etc.
+[APP EOSVR](app.md) 实现了上述合约的功能，它是一个可用于 Windows, MacOS, iPhone/iPad, Android 多平台的APP，用户可用它来进行传输，锁定（复仇），或者信用证明。
 
-Blockchain is a implementation of decentralized technique, and EOS is the new block chain technology. It uses DPOS consensus, instead of POW consensus of BTC or ETH that take most of machine resource into useless mathematical problem. So it can trade thousands of times per second, and can deploy useful app. At the same time, BTC cost nearly tens of billions of dollars per year, and can only trade 7 times per second.
+这个APP还在开发中，APP的源码将开源。之后，对这个APP代码做贡献也将能获取 EVD。
 
-On the other side, users especially young man need more real virtual world. They need more personalized character to find their friends in network. One world liked "Ready Player One" is what they need. In it, users can use their favorite character to enter real world and talk with their friends face-to-face.
 
-But in real world, how to prevent injuries to user is a big problem. In EOSVR, [decentralized audit](README.md#Audit) use to solve this problem.
+#### 获取方式
 
+1，EVD 与之前发布的 EVR 1:1 兑换，向帐号 evrexchanges 发送 EVR 或者 EVD，它就会返回相应的另一种。
 
-### EOSVR Components
+```
+# 1000 EVR 换 1000 EVD
+cleos push action eosvrtokenss transfer '{"from":"guest1111111", "to":"evrexchanges","quantity":"1000.0000 EVR","memo":""}' -p guest1111111
+# 1000 EVD 换 1000 EVR
+#cleos push action eoslocktoken transfer '{"from":"guest1111111", "to":"evrexchanges","quantity":"1000.0000 EVD","memo":""}' -p guest1111111
+```
 
-EOSVR has these components: Contracts in EOS Mainnet, File storage, Client APP, Scenario server.
+EVR 加载的是最基础的 eosio.token 合约，没有转账限制，也没要互锁等功能。EVD 才有这些功能。用户可以在它们之间进行1:1转换。
 
+而通过 eosvrmarkets 或者其他类似去中心化交易合约，可以将 EOS 换成 EVR，同样 EVR 也可以用同样的方法换成 EOS；
 
-#### EOS Chain
 
-EOS Chain is a block-chain that run EOS system. It is transparent and safe. 
+2，贡献获取方式
 
-EOSVR use it to store user data, including token, user titles etc. The amount of these data is small but must be safe to store.
+这种获取方式类似于挖矿，但不是通过计算算力，而是计算对 EVD 项目的贡献量。方式为通过对 EVR 系统做各种贡献（比如：推广，提供支持，写新功能，找错误，修改错误，提供解决方案等），然后将贡献证明写在讨论合约 （eosvrcomment，evradvancers，appadvancers 等）中。已有 EVD 的用户可以对这些贡献进行评价，最后根据排名给予奖励。
 
+详见：
 
-#### Contract
+- 合约 [eosvrrewards](reward.md)
 
-A contract is some computer codes, execute these code will get expected result.
+- [EVR/EVD分配方案](evd_distribute.md)
 
-Because all users can see the contract, everyone can check contract and prove their profit.
 
-EOSVR use contract in EOS mainnet to validate Comment and Trade.
+#### 相关合约
 
+- [eoslocktoken](evd.md): EVD 合约，实现了互锁、限制转账、延时转账等功能；
+```
+# guest1111111 互锁 guest1111112 的 100 EVD
+cleos push action eoslocktoken transfer '{"from":"guest1111111", "to":"guest1111112","quantity":"100.0000 EVD","memo":"#LOCK#"}' -p guest1111111
+```
 
-#### File Storage
+- [evrexchanges](exchange.md): 交换 EVR 和 EVD 的合约；
+```
+# 1000 EVR 换 1000 EVD
+cleos push action eosvrtokenss transfer '{"from":"guest1111111", "to":"evrexchanges","quantity":"1000.0000 EVR","memo":""}' -p guest1111111
+```
 
-File storage , use to store user's model, pictures and media files , etc. It supports private server to decentralize. Also the owner of model can sell his models to cover the fee of file storage.
+- [eosvrmarkets](ebancor.md): 交换 EVR 与 EOS 的合约，类似Bancor的机制；
+```
+# guest1111111 将 1 EOS 换成 EVR
+cleos transfer guest1111111 eosvrmarkets "1.0000 EOS" -p guest1111111
+```
 
+- [eosvrcomment](comment.md): 讨论用合约，每个人可以评论自己和其他人，也可以使用 EVD 来对讨论进行评分；
+```
+# guest1111111 给自己写一段介绍: "I am guest1."
+cleos push action eosvrcomment comment '{"from":"guest1111111", "to":"guest1111111", "memo":"I am guest1."}' -p guest1111111
+```
 
-#### Client APP
-
-Client, show the virtual world. User enter the world by it. Planned to support Windows, Mac, iOS, Android, also support VR Helmet like HTC vive and Oculus.
-
-
-#### Scenario Server
-
-Scenario server, use to sync user's motion data and voice data. 
-
-- It is open-source and user can setup their servers. They can control the parameters of server. Example: allow strange enter, use which token.
-
-- After a scenario server setup, owner can use it privately, or publish it in EOS chain.
-
-- Each scenario provide a 3D space. Users can move in it, talk with each other or show kinds of models.
-
-
-#### Record and Replay
-
-EOSVR client can record the motions of users in it, and play them later. This can be proof for the [audit](README.md#Audit). Also the record can be traded with other user, also can use in a complaint. (The following)
-
-
-User can make 3D animation with it!
-
-Because it only records the motion of objects, it will be very small compared with traditional video. And these record is 3D and user can view it in all directions freely.
-
-This new kinds of animation even can partly replace traditional movie in the future.
-
-Note: Record is only in EOSVR client, not in server. And user can sign it and put the signature to EOS chain to validate it.
-
-
-### Audit
-
-It is very important to avoid psychological harm in a virtual world:
-
-- Some one feel bad with certain model and indelicacy.
-  
-- Some one feel bad with discriminatory words or actions.
-  
-- Some one feel bad when other is too near.
-
-- Some one can not allow children talk with other without their eyes. And on the contrary, children can not allow their parent watch them at all time.
-
-We need a balance to let all people feel better, at least no bad.
-
-
-Audit is a way to reduce the harm. But traditional audit is central and cost a lot. We need a decentral way to audit. The following is the design:
-
-1，Comment: users can comment other (agree or disagree) when they feel happy or unhappy.
-
-- Agree: give token to other,
-
-- Disagree: a user can lock his(her) token, to lock another user's token;
-
-Example: John do not like the action of Mike just now. John can lock Mike's 10 tokens by locking his 10 tokens. If Mike only has 9 unlock token, he will be drive out of game.
-
-
-2，Complaint: users can record what occur just now (example: within 2 minutes) and publish the record. Everyone can judge the record and comment to someone in the record.
-
-A bad environment will harm users who have lots of token, and they tend to protect the effiency of the virtual world and do the justice.
-
-In special environment, such as private zone, users can invalidate the ability of comment and Complaint, to avoid the abuse of them.
-
-
-3, Guardian：Parent can provide an account to their children, and they can watch all actions of this account at any time and can take control of the account at any time. If young men do not like the watch of parent, they can create an account themselves.
-
-
-#### District 
-
-With different habit and interest, user can separate into different district.
-
-Also different district has different rules, including:
-
-1, Complaint effect, cost .vs. lock is not always 1 .vs. 1
-
-2, In a Complaint, can have the limit of locking token
-
-3, Delegate in Complaint, users can select several judge who have more locking multi effect than normal users
-
-4，Different token. User need to cost/get this token when stay in the district.
-
-
-#### Token & Trade
-
-EOSVR use EVR token as its base token. Different world have different token. 
-
-Users can trade with each other when they meet. They can also trade in trading world.
-
-
-Here is the [details](evr.md) about token and trade.
-
-
-#### Conclusion
-
-EOSVR is a decentralize app that can communicate with each other, and can trade and audit. It can build a new virtual world efficiently. 
+- [eosvrrewards](reward.md): 奖励用合约，奖励发起人可以使用这个合约对讨论用合约（eosvrcomment 或其他）的前几名进行奖励；
+```
+# eosvrcomment 发起的 Reward: 奖励共 2000 EVD，每天发送奖励给 eosvrcomment 排名的前5名，每人每次最多100 EVD
+cleos push action eoslocktoken transfer '{"from":"eosvrcomment", "to":"eosvrrewards","quantity":"2000.0000 EVD","memo":"500,eosvrcomment,86400,5,1,10"}' -p eosvrcomment
+```
 
