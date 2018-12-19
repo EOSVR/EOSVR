@@ -1,5 +1,8 @@
-## 交易
+## Trade
 
-可以将代币传到另一个帐号，也可以用代币来锁定另一个帐号中相同数量的代币。
+Can trade token to another account.
+
+Also can lock/unlock the EVD of another account.
+
 
 

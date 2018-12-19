@@ -1,10 +1,10 @@
 ## EVR BANCOR （eosvrtokenss）
 
-使用 Bancor 算法来交换两种代币，参考了 EOS 中的 bancor。
+Use Bancor algorithm to exchange two tokens. Reference the bancor code in EOS contract.
 
-合约代码在目录 ebancor 下。
+Code is in folder ebancor.
 
-### 使用方式
+### Usage
 
 ```
 #EOS to EVR
@@ -15,9 +15,9 @@ cleos push action eosvrtokenss transfer '{"from":"abcdabcdabcd", "to":"eosvrmark
 ```
 
 
-### 限制
+### Limit
 
-为了与之前的交换一致，在 EOS -> EVR 方向，加了一个限制，1 EOS 最多兑换 1000 EVR。
+To make it consistency, in the change of EOS to EVR have a limitation. One EOS can get at most 1000 EVR.
 
-反方向无限制。
+No other limitation.
 

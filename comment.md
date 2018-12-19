@@ -1,27 +1,27 @@
-## 评价合约 （eosvrcomment）
+## Discuss Contract （eosvrcomment）
 
-用户可以互相评论，也可以给自己写说明，或者用来给自己存储数据。每一对评价都可以使用 EVD 进行支持或反对。
+Users can discuss, or write comments to itself to save data. Every discuss pair can use EVD to for or against.
 
-合约代码在目录 comments 下。
+Contract code is in folder comments.
 
-#### 使用方式
+#### Usage
 
 ##### comment 
 
-一个用户用一段话评价另一个用户或自己；
+One account comment another
 
 ```
-# guest1111111 评价 guest1111112
+# guest1111111 comment guest1111112
 cleos push action eosvrcomment comment '{"from":"guest1111111", "to":"guest1111112", "memo":"hello, good."}' -p guest1111111
 ```
 
 
 ##### transfer 
 
-给某个评价以 EVD 支持或者反对；
+For or against another by EVD;
 
 ```
-# guest1111111 在 eosvrcomment 这个评价合约下，对 guest1111112 使用 2 EVD 进行支持评价
+# guest1111111 support guest1111112 with 2 EVD in contract eosvrcomment
 cleos push action eoslocktoken transfer '{"from":"guest1111111", "to":"eosvrcomment", "quantity": "2.0000 EVD", "memo":"+guest1111112"}' -p guest1111111
 
 ```
@@ -29,10 +29,10 @@ cleos push action eoslocktoken transfer '{"from":"guest1111111", "to":"eosvrcomm
 
 ##### withdraw 
 
-收回给某个评价的 EVD 支持或者反对；
+Take back the support or against to another;
 
 ```
-# guest1111111 在 eosvrcomment 这个评价合约下，收回对 guest1111112 评价花费的所有 EVD
+# guest1111111 withdraw the comment EVD to guest1111112 in contract eosvrcomment
 cleos push action eosvrcomment withdraw '{"from":"guest1111111", "to":"guest1111112"}' -p guest1111111
 
 ```

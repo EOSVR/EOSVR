@@ -1,171 +1,169 @@
-## EVD的侧链实现
+## EVD Side-chain Solution
 
-#### 介绍
+#### Introduction
 
-因为信用系统可能需要上亿甚至几十亿的账户，需要上百万甚至更多的TPS（每秒交易速度），目前EOS主网的TPS只有4000，无法满足需求，所以引入了侧链系统。
+Trust system may need several Giga accounts with several millions tps (transaction per seconds), but currently tps of EOS mainnet is only 4000. To increase tps, EVD use side-chain solution for it.
 
-侧链是为了辅助EOS主链，用主链中一个帐号（连接帐号）的信用作为背书，在侧链上发行EVD并允许与主链相互交易，分担主链的运行压力的一个EOS链。
+Side-chain use the EVD in an account in EOS mainnet to endorse the side-chain is limited trustable, and increase the tps of whole EOS network.
 
-侧链与主链一样由BP管理，侧链与主链的交易、侧链与侧链的交易都通过连接帐号来维护。连接帐号可以有多个，这些连接帐号在交易中可以收取一定的交易费用，以维护连接系统运行以及主链的交易费用。
+Like EOS mainnet, Side-chains are controlled by BPs (Block Producer) too. And all across-chain transfers are controlled by linker. The linker can be several in a side-chain. They must have accounts in both chains. 
 
-连接帐号将每隔一段时间检查是否有跨链转账需求，并在两条链上操作这些转账需求。为了防止这些连接账户作恶，将使用[哈希时间锁(HTLC, Hashed Time Lock Contract)](#哈希时间锁)来维护所有转账操作的一致性。
+Linker will check if there are across-chain transfer and work in both chains to complete them. To prove the correction of transfer, will use [Hashed Time Lock Contract(HTLC)](#Hashed Time Lock Contract) to sync the transfer.
 
-对于一个EOS链，单个用户的维护费用可以很低，比如30K内存加上每天10次操作一整年，只用1毛钱。将多个这样的EOS链用连接帐号连接起来，使得部署一个大范围、低成本的信用网络成为可行。
+To a simple EOS chain, it will be very low for a user. Example: 30K RAM and 10 transaction per day will only cost 0.02$ in one year. Link lots of EOS chain in this way, and we can setup an wide-spread, low-cost trust system.
 
 
-#### 侧链建立步骤
+#### Steps of Setup
 
-1，侧链的BP建立侧链，同主链一样，侧链的BP联盟拥有侧链的控制权；
+1, Setup of side-chain is same as main-net. Side-chain is also controlled by BPs too;
 
-2，侧链的BP在主链上有相应帐号，这些帐号中存有 EVD ，并且加上了转移限制，由此给侧链以信用支持；
+2, BPs of side-chain have accounts with same name in mainnet. These accounts have EVD in it with transfer limitation to endorse the side-chain;
 
-3，主链中的帐号A可以申请成为两个链的连接者(Linker)，方法是：
+3, Account A in mainnet can apply for linker by:
 
-  a, 在主链中向 eoslocktoken 帐号（EVD合约帐号）发送一些EVD，memo中加上侧链的 chain_id，作为在侧链中发行EVD的凭证。由于eoslocktoken 除非主链BP统一操作，否则无人可以操作，这是一个[单向锚定](#问题)；
+  a, In mainnet, transfer several EVD to account eoslocktoken (EVD contract). The memo of transfer is chain_id of side-chain. Because eoslocktoken will be locked, no one can transfer EVD out of it except mainnet BPs. It is a [one-way seg](#QA)；
   
-  b，在侧链中，侧链的BP使用 eoslocktoken 帐号发行同样数量的EVD给帐号A，这个发行动作也将标记A是连接者；
+  b, In side-chain, BPs use eoslocktoken issue same amount of EVD to account A, and mark A as a linker of this side-chain;
   
-  注意：帐号A中至少要保留一半的EVD，以便跨链交易；
+  Note: account A can not burn all EVD. It must have half EVD to support the across-chain transfer.
   
-4，连接者A部署一台或数台服务器，内置连接帐号的私钥，这台服务器将自动运行如下内容：
+4, Linker A deploy a server with its private-keys and run the following:
 
-  a, 检查主链中是否有给A发送EVD的带[哈希时间锁](#哈希时间锁)的操作，如果有，就在侧链上建立同样的转账操作，带有同样的哈希时间锁；
+  a, Check if there is a transfer to it in mainnet with [Hash Time Lock](#Hashed Time Lock Contract). If yes, create a transfer with same Hash Time Lock;
   
-  b，检查自己建立的[哈希时间锁](#哈希时间锁)转账是否被确认了，如果确认了，就将它的源操作也确认；
+  b, Check if someone confirm the transfer A created. If yes, confirm its source transfer with the same password;
   
-  c，检查自己建立的[哈希时间锁](#哈希时间锁)转账是否超时了，如果超时了，就将它取消；
+  c, Check if any transfer A created is timeout. If yes, confirm it is cancelled;
   
-  d，检查侧链中的a和b条件是否成立，并在主链中执行类似操作；
+  d, Check and run a-c in side-chain too.
   
 
-5，主链中检查侧链的方式:
+5, How to find side-chains:
 
-  a, 显示连接者的帐号和它所支持的侧链ID: ``` cleos get table eoslocktoken eoslocktoken depositss ```
+  a, Show all linker with side-chain id : ``` cleos get table eoslocktoken eoslocktoken depositss ```
 
-  b, 去连接者帐号查看侧链的具体地址： ``` cleos get table eosvrcomment account1 commentss ```（放在 eosvrcomment 合约中，连接者可随时改动）
+  b, Get side-chain address in linker's description in eosvrcomment: ``` cleos get table eosvrcomment account1 commentss ```
 
 
-可直接运行脚本来建立侧链。
+These are scripts to create side-chains.
 
+
+#### Scripts to create side-chains
   
-#### 侧链建立脚本  
+Please setup the following manually:
+
+- Setup a EOS chain;
+
+- BPs of EOS side-chain have EVD and limitation;
+
+- Linker send(burn) EVD to eoslocktoken and set its description (eosvrcomment);
+
+- BPs of side-chain issue EVD to linker in side-chain;
   
-下列部分不在脚本中，请手动完成：
 
-- 普通的 EOS 链建立；
-
-- 侧链BP的EVD担保；
-
-- 连接者发送 EVD 到 eoslocktoken ；
-
-- 连接者手动修改自己的描叙；
-
-- 侧链给连接者发送 EVD ；
-  
-  
-在一台 Linux 机器中 （测试在 CentOS 7.3）：
+Run linker script in linux（tested in CentOS 7.3;
 
 ```
-# 先修改 config.js ，填上连接者的私钥，主链地址列表，侧链地址列表
+# Change config.js , write correct private keys , main-net address and side-chain address;
 
-# 运行安装程序
-sh install-linker.sh 
+# Run linker
+node linker.js
 
 # DONE
 
 ```
 
-（注：脚本还在开发中）
+(Script is in develop)
 
   
-#### 跨链转账
+#### Across-chain transfer
 
-假设A是连接者，侧链中的帐号 B 向主链中帐号 C 进行转账，那么步骤如下：
+If A is linker, B in side-chain want to transfer EVD to C in mainnet. Steps are following:
 
-1, 侧链中，B 向 A 转账，在memo中写明了向主链中的C转账，并加上哈希时间锁；
+1, In side-chain, B transfer to A with memo "#HASH#{HASH},{timeout},{DEST}";
 
-2, 主链中，A 检查到了侧链中的转账，所以，A向C转账，并使用了同样的哈希时间锁；
+2, Linker A finds the transfer. In main-chain, A transfer to C with same HASH;
 
-3, B 看到了主链中的 A -> C 转账，于是公开了哈希时间锁的密钥，使得主链中的 A->C 转账成功；
+3, B found there is a transfer A -> C in mainnet, and B confirm this transfer with its password of Hash Lock;
 
-4, 主链中，A 检查到了 B 公开的密钥，于是使用了这个密钥，使得侧链中的 B->A 转账成功；交易完成。
+4, Linker A finds the confirm of transfer A->C, and A get the password from the confirmation and confirm the transfer B->A in side-chain; All transfer are completed;
 
-5, 如果步骤3中B一直不公开密钥，那么两个交易都将超时回滚；
+5, If in step 3, B do not confirm. Both transactions will be cancelled by linker A;
 
-具体逻辑在[合约eoslocktoken](evd.md)中。
-
-在主链和侧链上，连接者A的EVD总和应该是一致的，正好等于连接者A最初在主链上的EVD数量。比如：
-
-- 一开始，A在主链上一共有250EVD；
-
-- A向 eoslocktoken发送了100EVD，侧链给它发布了100EVD，这时：主链 A:150 EVD， 侧链 A：100 EVD；
-
-- 之后，侧链帐号B通过它向主链帐号C转了10EVD，那么，
-  主链 A = 150 - 10 = 140 EVD， 
-  侧链 A = 100 + 10 = 110 EVD。
-
-A所拥有的EVD在两个链上的总和始终不变。
+More info in [eoslocktoken](evd.md).
 
 
-#### 哈希时间锁
+#### Hashed Time Lock Contract
 
-在交易前，发起交易的一方先随机生成一段文本作为锁的密钥。然后将这段文本进行哈希操作，将哈希值记录到交易中。与这个交易相关联的其他交易也可以将这个哈希值写入它们的交易记录，并约定，当这个哈希值的原文（也就是一开始生成的那段文本）被展示出来后，交易将通过。
+- Before a transaction, a user use a random text as password, and hash it to create a hash code;
 
-这样，发起交易的一方可以等待，直到所有相关交易都准备好了，才公布密钥。密钥一旦公布，所有人都可以确认交易。
+- User put this hash code to a transaction and promise the transaction will confirm only when the password is revealed in a certain time;
 
-详见 [EVD合约](evd.md#hash)。
+- Other related transactions can also use this hash code and promise;
+
+- The first user can wait all related transactions are ready, then reveal the password. After the password is revealed, all users can confirm the transaction.
 
 
-#### 侧链的快速校验
+[More info: EVD](evd.md#hash)。
 
-对于每一条侧链，其他人都可以对它的正确性进行校验。需要至少校验如下内容：
 
-- 链上合约的正确性。方法是检查链上关键合约 eoslocktoken 的 hash 值与主链一致，命令：```cleos get code eoslocktoken```
+#### Verification of side-chain
 
-注：如果侧链的 eoslocktoken 帐号上曾经部署过其他hash值的合约，那么侧链的建立者需要证明自己之前部署的合约不含恶意代码（公开之前部署的代码）。所以，为了避免复杂的检查，侧链上最好只有一版 eoslocktoken 合约（或者数版更新）。
+Everyone can verify a side-chain before use it. The verification like the following:
 
-- 检查侧链中eoslocktoken发布的 EVD 总代币量，小于等于主链的"连接帐号"发送(焚毁)到eoslocktoken的EVD量。命令：
+- Correction contracts. Check the hash code of eoslocktoken and make sure they are same as main-chain. Command: ```cleos get code eoslocktoken```
+
+Note: If in side-chain have deployed other contracts in eoslocktoken, side-chain must prove these code are not malicious. It is better not deploy other contract in eoslocktoken.
+
+- Check all EVD issued by eoslocktoken, is equal or smaller than all linkers send to eoslocktoken with same side chain id.
+
+Main chain
 ```cleos get table eoslocktoken eoslocktoken depositss```
 
-
-#### 意外应对
-
-如果侧链的BP们串通起来，恶意增发 EVD。这些EVD将损害连接者和侧链用户的利益，但不会使得主链上的EVD增多。这时可以：
-
-- 在主链上锁定给侧链提供担保的帐号的EVD；
-
-- 连接者出于自身利益考虑，也会停止跨链交易，使得侧链与主链完全断开；
-
-- 主链上的其他账户可以同步侧链信息，并回滚掉侧链上的恶意操作，重新开启一个侧链；
+Side chain
+```cleos get table eoslocktoken EVD stat```
 
 
-#### 将其他数字代币作为侧链
+#### Exception
 
-因为 BTC，ETH 等数字代币的交易速度缓慢，所以，可以将它们迁移到 EOS 侧链上来实现快速交易，以便大大提升速度。这对小额交易来说，在速度上将会有巨大提升，大额交易仍然可以使用原来的方式。
+If BPs in side-chain issue EVD more than burned in main-chain, these EVD will damage linkers and users of side-chain. But this will not influence main-chain. At this time:
 
-跨链转账流程类似如下：
+- Lock the EVD of BPs of side-chain;
 
-- EOS网络上有一个信用帐号X1，里面有足够的 EVD 并且设置为长期锁定，以便提供信用担保。而在 ETH 网络上，有一个帐号X2与这个帐号对应。
+- Linker will stop the across-chain transfer;
 
-- ETH网络上，用户A2准备向EOS网络上的A1发送 ETH。A2向X2发送 ETH 后，X1检查到这笔交易，在 EOS 网络上，X2向A1发送相同的 EETH。
-
-反向转账与之流程相反。
-
-EOS外的区块链中可能无法实现哈希时间锁的功能，所以这些转账完全依赖于中间的连接帐号来进行操作。这里通过 EVD 来对它的可信度进行有限担保。连接帐号如果作恶，其他 EVD 的帐号将对它的 EVD 进行锁定，以维护整个网络的公正。
+- Other account in main-chain can copy the record of side-chain, rollback the wrong issue operations, and reopen a new side-chain;
 
 
-#### 问题
+#### Other block-chain token as side-chain
 
-1，为什么要使用单向锚定（one-way peg），而不使用双向锚定？
+Because BTC, ETH is slow to transfer, it is possible to help customs to transfer small amount of tokens in side-chain of EOS to make it faster. Big amount of token transfer can still use the old way.
 
-答：因为双向锚定需要一个管理帐号，由这个帐号来决定何时退回用户的EVD。但这样的话，这个管理帐号难以界定到底谁拥有。侧链的BP也可能更换。而单向锚定就没有这个问题，而且，建立连接者这个操作一个侧链常常只有数次。
+Steps like the following:
 
-2，为什么要使用 EVD 作为跨链代币，是否可以使用 EOS？
+- Account X1 in EOS chain have many EVD and limitation of transfer set. It is limited trustable;
 
-答：EVD提供了EOS原生代币不具备的许多功能，比如互相锁定，这使得它可以方便地在有人作恶时进行反制。
-而EOS的作用是进行BP投票、CPU、内存抵押等。这些操作在每一个EOS链（不管是主链还是侧链）都需要，不同的链中有不同的CPU、内存价格，所以侧链中的EOS必然与主链中的EOS价值不一致。所以无法进行跨链交易。
+- At ETH-chain, owner of X1 have an account: X2;
 
-3，侧链的建立脚本在哪？
+- In ETH-chain, user A2 want to transfer some ETH to user A1 in EOS-chain. A2 can send ETH to X2, and X1 find this transfer and can send same EETH to A1;
 
-答：还在开发中。请稍候。
+- If X do not transfer correctly, A can lock its EVD in eos main-chain;
+
+In block-chains that do not support hash time lock contract, we can also use EVD to endorse them.
+
+
+#### QA
+
+Q: Why one-way peg, why not two-way peg ?
+
+A: Two-way peg need an account that have privilege to send back. It is a centralized account and hard to decide who can own this account.
+
+Q: Why use EVD as across-chain token? Why not use EOS?
+
+A: EVD support many features that EOS do not support, such as: lock each other. This make it easy to use in across-chain transfer.
+And EOS is used for vote, CPU and RAM. A side-chain also need EOS to calculate CPU, RAM. They have different price and hard to transfer across-chain.
+
+Q: Where is the script to build side-chain?
+
+A: In development. Plan to release preview version at the end of 2018.
 

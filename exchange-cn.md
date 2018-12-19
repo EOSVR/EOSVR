@@ -1,10 +1,10 @@
-## EVR Exchange Contract (evrexchanges)
+## EVR 交换合约 (evrexchanges)
 
-Let EVD can change to EVR and change back 1:1.
+使得另一种代币（EVD）可以与 EVR 1:1 交换。
 
-Code is in folder: exchange .
+合约代码在目录 exchange 下。
 
-#### Example
+#### 使用示例
 
 ```
 cleos push action eoslocktoken transfer '{"from":"guest1111111", "to":"evrexchanges","quantity":"100.0000 EVR","memo":""}' -p guest1111111

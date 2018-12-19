@@ -1,12 +1,10 @@
-#### 评论（论坛）
+#### Discuss
 
-用户可以选择一个加载了评论合约的帐号（比如：eosvrcomment），类似于论坛。
+User can select a account with discuss contract.
 
-这时，会显示这个论坛的介绍，以及排名靠前的奖励。
+And it will show the description of this discuss and list lots of account who is discussing.
 
-同时，将列出当前在上面发布评论的账户列表，按支持数排序，支持最多的在最上面。
+Click one account to comment or support.
 
-点击每一个账户，可以对这个账户进行评论，并且加支持。
-
-如果这个论坛中正在进行奖励，排名靠前的用户，可以得到奖励。
+If there is a reward is sending, the account who rank top N may get reward.
 

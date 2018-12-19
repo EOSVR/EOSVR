@@ -1,153 +1,155 @@
-## 信用解决方案
+## Trust Solution
 
-这是一个用户可以互相锁定的信用系统。
+This is a trust solution by providing a way to lock trust points of each other.
 
-### 引言
+### Introduction
 
-我们每天都要与许许多多的陌生人或者商家打交道，我们需要迅速判断对方是否值得信任。对于对方是否可信，目前常见的判断方法是:
+We need to meet different persons or shops everyday. We need to judge if they are trustable. Current ways to judge like the following:
 
-- 通过衣装举止判断；
-  但有人因此用刻意装扮欺骗他人；
+- By clothing and behavior,
+  But someone may dress up deliberately to cheat others;
 
-- 通过熟人互相背书；
-  但熟人也可能看走眼；
+- By endorsement from a friend;
+  But friend may have wrong judgement.
 
-- 商户通过口碑、品牌或者实体店铺来为他们的信用背书；
-  但很多小商户没有口碑和品牌，即使产品不错也难以起步，而加盟可能太贵。实体店铺则有搬走的危险；
+- Shops use brand and/or physical stores to support their credit;
+  But small shop is hard to survive when they do not have a brand, even if they have good products. And a physical store may relocate;
 
-一旦判断错误受到损失，复仇方式一般为：
+Once the judgement is wrong, the way to revenge like the following:
 
-- 由一个第三方的审判机构来讨回公道(比如打官司)；
-  但这往往伴随着漫长的流程、艰难的取证、巨大的时间损失 或者 巨大的付出；
+- Appeal to a third-party organization (e.g. court);
+  But it will take a very long time and/or lots of money;
 
-- 快意恩仇（比如打一顿）；
-  这往往伴随着双方利益的共同损失，而且不能回撤。而且在与陌生人分开、或商户搬离后，我们难以再找到对方，使得对方难以受到惩罚。特别对于那些损失不太大的欺骗，一旦追索可能花费的成本大于损失，大多数人都会选择放弃惩罚。
+- Revenge directly (e.g. hit);
+  In this way, both sides have loss and can not withdraw. And it is always hard to find the treater to revenge. In most scam with small amount of loss, the victim will give up the revenge because it takes too long time to find the cheater. And the cheater can cheat other persons again and again.
   
-- 在网上曝光；
-  但这是必须是有名的品牌，小品牌或者个人无法吸引到注意；而且网上曝光难以自证，也就难以让众人信服。
+- Show the proof in network;
+  But it is only useful when cheater is a famous brand. No one will notice a small brand in network. And victim always find they are hard to prove the error of cheater.
 
-这套解决方案在识别和惩罚中都存在不确定、不直观的问题。目前在区块链体系下，有希望使用信用点来实现一个更直观、更确定的信用解决方案。
+Current trust solution have many issues. In current block chain system, we hope to find a better solution.
 
-### 解决方案
+### Solution
 
-本信用解决方案是一个去中心化的区块链系统，在这个系统中所有用户都是平等的，每个用户都拥有自己的信用点。这时：
+The solution is a block chain system. In this system every account is equal, and they have trust points. And:
 
-- 用户的信用可以由他拥有的帐号中的信用点来背书；
+- The trust points in an account is the trust of account;
 
-- 如果受到了伤害，用户的复仇方式为：用自己的信用点锁定对方的信用点；
+- Account can use trust point to revenge another account by locking its trust point;
 
-假设：A有1000个信用点，A的可信程度就是1000点。如果A对B作恶，B认为自己遭受了100点的损失，B可以花费自己的100个信用点，来锁定A的100点。这时，A就只剩900点了。如果之后两人和解，B也可以解除锁定，拿回自己的100点，解锁后，A的信用点也将恢复到1000。
-
-这种信用机制适用于现实生活中的绝大多数较小的矛盾与冲突，让人们可以自行处理现实生活中出现的小纠纷，也就可以营造出一个更加和谐的社会。
-
-
-### 应用场景
-
-#### 流动摊贩
-
-流动摊贩需要信用帐号。因为流动摊贩不像固定商店，无法自证自己的信用，而且没有固定摊位无法追索。这时，他们可以公开自己的信用账号来自证信用。只要这个账号里面有信用点，买家就可以通过锁定的方法，在发现他们售卖伪劣商品的时候，对他们进行信用扣除，而不用考虑他们是否早已离开。
-
-#### 服务业等
-
-服务业等商户也需要信用帐号。因为：
-
-- 当客人在接受服务的时候，很多情况是不值得当面表达不满的，因为那样的话服务人员就可能不用心服务了；
-
-- 现在普遍采用的投诉系统采用中心化的体系，这个体系让投诉中心承担了太多流量，以至于不堪重负。而这个投诉系统对客户是不透明的，导致客户并没有看到商户受到任何实质性的损失，从而仍然不满；
-
-- 许多情况下客户无法证明自己的损失，使得投诉无法进行；
-
-但如果店铺或者企业有信用帐号的话，客户就可以直接对他们的信用点进行锁定，就可以大大减少这种矛盾冲突。而且客户无需证明自己受到了不好的对待，因为客户也付出了自己的信用点作为成本。
-
-这样一来，客人会倾向于去那些有信用帐号的商店，而商店也需要用信用帐号来证明自己的服务是优质的。
-
-大量场景都有这种允许类似『秋后算账』的需求。比如：餐厅，出租车，教育培训等。这些场景中客户难以直接表达不满，但商户的信用账号一旦被公示出来，一旦作恶，就有在未来信用点被锁定的风险。
-
-#### 长期损失的情况
-
-在一些情况下，损失需要在几个月，甚至数年以后才被发现，这时，需要信用账户这种允许秋后算账的机制。这能够阻止那种数月后才被发现的损害，因为不管对方逃到哪里，信用帐号都可以被锁定。这将有利于让人们考虑长期的效果，而不是只考虑短期的利益。
-
-#### 文章
-
-信用帐号还可以为文章作背书。现在一篇文章是否可信是一个很多人关心的问题。比如：社交媒体上流传的一些文章。如果文章或者新闻的后面有一个信用帐号作为背书，那么这个帐号中的信用点就是文章的可信度。一旦发现文章在进行欺骗，就可以对这个帐号的信用点进行锁定。
-
-一旦有足够数量的有信用背书的文章，用户就可以选择只看那些有信用背书的文章，就可以不被不可信的文章骚扰了。
-
-#### 社会问题
-
-骚扰电话、垃圾短信，或者不文明驾驶等等社会问题，一旦与信用帐号绑定，都可以得到解决：
-
-- 只接听有信用帐号背书并且信用为正的电话，如果发现接到的是骚扰电话，扣除对方的信用；
-
-- 只观看信用为正的号码发送的短信，如果是骚扰短信，扣除对方的信用；
-
-- 只允许有信用帐号背书的车辆上路，所有路人一旦观察到不文明驾驶行为，都可以锁定对方信用帐号中的信用点；
-
-因为骚扰电话、短信或者不文明驾驶都是影响大量人群的，即使只有少量人复仇，复仇者只锁定对方少量信用点，但由于被对方骚扰的人群的基数大，仍然会导致对方信用崩溃。
-
-
-### 功能列表
-
-为了实现上述功能，信用点需要支持下面功能：
-
-- 用户间信用点互相锁定；
-  这使得账户的信用真实可信。
-
-- 一段时间内限制转出的信用点的数量；
-  这使得账户无法迅速转移信用点，从而使锁定变得可行。
-
-- 交易的延迟到账和多笔交易同步；
-  这使得跨链交易和现实中较长时间的交易变得可行。
-
-
-### 结论
-
-本信用系统可以让更和谐的社会变得可能。
-
-[实现方案](README.md)
-
-
-### 问答
-
-1，掌握巨量信用点的人或者机构，是否会对普通人进行压制？
-
-答：个人或者没有名气的人是无法被压制的。因为个人可以拥有多个帐号，每一个帐号的信用点很少，不怕扣，即使扣光了，换个帐号就行。但对于普通的小商户，确实会受到压制。这时需要把不公正的情况进行曝光，因为区块链系统是透明的，任何一笔交易都可以被任何一个人查到。在曝光后，即使手握大量信用点的人，也要考虑其他手握大量信用点的人的反应。
-
-2，由什么来信用背书，为什么由它来进行信用代言？
-
-答：并没有什么作为信用背书。这只是一个信用实验，探寻在区块链的模式下，是否可以创建一个更加有效率的信用体系，并不是什么信用代言。至于它以后会发展成什么样，我们也不知道。
-
-3，如果对方直接把你绑架了，你怎么锁定对方的代币？
-
-答：信用锁定只是用来简化处理那些频繁的小矛盾冲突，它无法保证在人身安全受到影响的情况下的信用，比如：杀人、绑架、勒索等等。这些还是需要警察、军队等来保护。
-
-
-4，这个系统是否会导致大家都只说好话，而坏消息无法进行传播？因为坏消息总是让人不高兴的。
-
-答：希望这个系统能够起到这个效果：只有追求真实的人，才能得到更多的信用点。所以，在 reward 回报系统中，会加入对一些看起来不那么舒服的"坏信息"的回报，希望能起到一些作用。同时也希望拥有信用点的用户，不要惩罚报告坏消息的人，应该奖励他们，要惩罚的是报告假消息的人。
-
-
-5，要想改革，虽然会让一些人受益，但几乎必然要损害另一些人的利益。由于损失厌恶，得到利益的人只会有限支持你（比如拿出20%的收益支持），被损害利益的人一定会反对你（比如拿出100%的损失反对）。支持和反对的比例是不对等的。所以，在这个系统下，就没人敢改革了。
-
-答：是的。所以这个系统并不是很适合于改革者，或者创新者，更适合普通日常。
-
-
-6，人们一开始，必然不习惯这个信用系统，因为它与原来的生活习惯完全不同。那么如何让人们习惯呢？
-
-答：这个系统目前只用于：
-
-  1，搭建EOS的侧链，让普通开发者能够像开发普通应用那样开发区块链程序；
+Example: 
+  A have 1000 trust points. If A do evil to B, B think his loss equals 100 points. B can use 100 trust points to lock 100 trust points of A. After that, A have only 900 trust points. 
   
-  2，不同区块链间交易时的有限信用担保；
+  If B and A discuss and resolve the conflict, B can unlock these 100 points. Both A and B will get back their 100 points in locking.
+
+This solution can use in most of the small conflict in society. People can resolve their conflicts automatically and will make a better society.
+
+
+### Scenarios
+
+#### Peddlers
+
+Peddlers sell their products without a fixed location. They need accounts to prove their products are good. A custom will lock trust points of peddlers when their products are bad, even if peddlers have left.
+
+#### Services
+
+Shops of services need accounts, because:
+
+- When customs are receiving services, customs may be hard to express their discontent. Because after that, service staff may be unhappy to serve;
+
+- Current complaint system is centralized. The complaint centers are always overwhelmed. And the complaint systems are opaque to customs. Customs are still discontent because they do not find any loss of shops.
+
+- In lots of condition, custom can not prove their loss;
+
+But if shops have accounts, customs can lock their trust points directly. And customs do not need to prove anything, because they also pay their points.
+
+
+Lots of scenes have this kind of requirement. Such as: Restaurant, Taxi, Education & Training, etc.
+
+In these scenarios, customs are hard to express their discontent. But if shops show their accounts and do evil, their trust points may be locked in the future.
+
+#### Loss after a long period
+
+In some condition, the loss can be found after several months, even several years. This account can protect this kind of loss. Because even after several months and the cheater can not be found, victims can still lock the trust points in the account.
+
+This will help people to think the effect of long period, instead of short-term profits.
+
+#### Articles
+
+The trust account can make an article to be more trustable too.
+
+Now there are lots of fake news in network. If there is a trust account endorsing the article, the article is trustable. Because if it is a fake news, the victims (the people who read the news) will lock the trust points of account.
+
+After there are enough articles that have trust account, users can select to view articles that have trust account. And will not be disturbed by untrustable articles.
+
+#### Other social issues
+
+Crank call, spam or unsafe drive, etc, can also resolve if bind with trust account:
+
+- Only receive the call and email from an account with positive trust point. If find the call or email is not good, lock its trust points;
+
+- Only allow the car with trust account drive in the road; everyone who find the car drive unsafely, can lock its trust points;
+
+Because these behaviour will impact lots of people, even if only a small portion of people will revenge, the cheaters will also lose lots of their trust points.
+
+
+### Functions
+
+To implement these, trust system should have the following features:
+
+- Accounts can lock each other;
+  This make the account is trustable.
+
+- Restrict the amount of trust point to transport from an account to another;
+  This make the account can not move all of their trust points to another account after they do evil;
+
+- Allow delayed transfer and synchronous transfer;
+  This make it possible to transfer across-chain and synchronous with real society.
+
+
+### Conclusion
+
+This trust system will make our society better.
+
+[Solution Details](README.md)
+
+
+### Q/A
+
+Q: The account with lots of trust points may suppress normal persons and small shops.
+
+A: Single person can not be suppressed because they can change to another account. Small shops may be suppressed. At these time, they can reveal the evidence by network. And other accounts with lots of trust points can intervene.
+
+
+Q: What endorses the trust points? Why will we use it?
+
+A: Nothing endorse it. It is only an experiment to find if there is a way to create a better trust system in block-chain.
+
+
+Q: If you are kidnapped by cheaters, how to lock their accounts?
+
+A: This is only to resolve the small conflicts. And it is only limited trustable. It is useless when you are unsafe. The safety should be protected by the army or police.
+
+
+Q: In this system, people may tend to say good news and do not say bad news. Because bad news will make others unhappy. How to resolve it?
+
+A: Hope this system can reward the people who provide true messages instead of good messages. So in the reward system, may add some rewards to the people who report bad news. Hope it can work. Also hope the people who have lots of trust point can support the people who say bad and real news.
+
+
+Q: In an innovation, some people will get profit, but there must be another people will get loss. Because people always hate loss, the people who gain will only support you limited (Example: 20% earning), but the people who loss will be against you fully (Example: 100% reject). In this way, no one will innovate. How to resolve ?
+
+A: Yes. The system is not suitable for an innovation condition. It is better for a common condition.
+
+
+Q: People will not know this system at the first. Because it is very different with current environment. How to resolve?
+
+A: Now this system is only used for:
+
+  1, Create side-chains of EOS, and allow develops can use block-chain in traditional way;
   
-  3，网络上人与人的互信；
+  2, Endorse the transfer between side-chains;
   
-  要想扩展到现实世界还需要一段时间。首先需要大家都了解、习惯这个系统的用法，然后才能逐渐过渡。而且，这只是目前现状的一个补充，是对网上(或者现实)缺乏惩罚机制的一个补充，不会替代当前系统。
-
-
-7，如果使用人治的话，一个系统中掌握大量信用点的人的思想，就会变成这个系统的规则。如何保证他们思想的正确性，如何避免这些人的思想不过时？
-
-答：这是个好问题。要是过时了，就让其他信用点来取代它吧。
-
+  3, The trust of people in network;
+  
+  It will take a long time to extent it to real world. We must be familiar with it first. It is only a supplement that network (or real world) lack a way to revenge. It will not replace current system.
 
 

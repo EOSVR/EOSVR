@@ -1,5 +1,7 @@
-#### 自动交换
+#### Auto Exchange
 
-本APP的交易围绕着 EVR 进行，可以将其他代币(EOS,EVD)换成 EVR，或者换回来。
+The exchanges of APP are all about EVR. 
 
-以后会支持更多种类的代币。
+Can change a token (EOS, EVD) to EVR and change back.
+
+In the future, will support more tokens.

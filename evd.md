@@ -1,91 +1,91 @@
 ## EVD （eoslocktoken）
 
-EVD 合约，实现了互锁、限制转账、延时转账、交易锁等功能。
+EVD contract, can lock each other, limited transfer, delayed transfer, hash time lock for transfer.
 
-合约代码在目录 locktoken 下。
+Contract code is in folder locktoken.
 
-#### 功能及示例
+#### Features and Examples
 
-普通转账功能与 eosio.token 一致。 下面这些是在 transfer 命令中的新功能：
+Normal transfer is same as eosio.token . The following are new features:
 
-1，允许给自己转帐的命令，这将会：
+1, When change to self, it will:
 
-  a，刷新当前帐号，如果有延期到达的token到期了，将会刷新token量；
+  a, Refresh current account, if there is any delayed transfer ready, it will update the amount of token;
   
-  b，如果在 memo 中有 #LIMIT# ，将设置每个月可以转出多少百分比的token，最小值是1，表示每个月只能转出 1% 。为了防止将限制设大后转出，限制只能设为比当前更小的数；
+  b, Write #LIMIT#XXX in memo of transfer, will set the limitation percent of transfer per month. The value is 1-50. Minimum is 1, at this time, can only transfer out 1% tokens per month. To prevent an account change it to a big number and break the restriction, this value can only set to a smaller value. And when the limitation is 1, it can not be set anymore.
 
-示例:
+Example:
 
 ```
-# account1将自己的限制设为每个月最多转出一半token。
+# account1 set it can only transfer half of its token per month.
 cleos push action eoslocktoken transfer '{"from":"account1", "to":"account1","quantity":"0.0000 EVD","memo":"#LIMIT#50"}' -p account1
 ```
 
-2, 给其他人转账时，如果加上 #LOCK#，将锁定对方的token，而不是转账；
+2, When transfer to another account, use #LOCK# in front of memo to lock the token of another, instead of transfer;
 
-示例:
+Example:
 ```
-# account1 锁了 account2 的 100 EVD
+# account1 lock 100 EVD of account2
 cleos push action eoslocktoken transfer '{"from":"account1", "to":"account2","quantity":"100.0000 EVD","memo":"#LOCK# I do not agree with your comments."}' -p account1
 ```
 
-4, 给其他人转账时，如果加上 #UNLOCK#，将解锁对方的代币，而不是转账；
+3, When transfer to another account, use #UNLOCK# in front of memo to unlock the token of another, instead of transfer;
 
-示例：
+Example:
 ```
-# account1 解锁了 account2 的 100 EVD
+# account1 unlock 100 EVD of account2
 cleos push action eoslocktoken transfer '{"from":"account1", "to":"account2","quantity":"100.0000 EVD","memo":"#UNLOCK# OK"}' -p account1
 ```
-注意: 只能 unlock 已经 lock 了的代币。
 
-5, 给其他人转账时，如果加上 #TIME#，这笔转账将一段时间后才到账；
+Note: can only unlock the locked token. If there is no enough locked token, it will fail.
 
-示例：
+4, When transfer to another account, use #TIME# in front of memo to transfer the token of another with a period of delay;
+
+Example:
 ```
-# 这100 EVD 将在1天后到账
+# These 100 EVD will be ready after 1 day.
 cleos push action eoslocktoken transfer '{"from":"account1", "to":"account2","quantity":"100.0000 EVD","memo":"#TIME# 86400"}' -p account1
 ```
 
-6, 所有可以被转账(或投票)的代币 = 当前代币 - eoslocktoken 中记录的被锁定代币；
+5, Current liquid (can transfer or vote) token = {all tokens} - {locked token recording in contract (eoslocktoken) } ;
 
-7, 如果 A 锁定了 B，B也可以给A 90%的代币，并移除这个锁。memo 中加上 #CONFIRM# 即可；
+6, If A lock B, B can confirm this lock and give 90% tokens to B by adding "#CONFIRM#" in front of memo;
 
-示例：
-
+Example:
 ```
 cleos push action eoslocktoken transfer '{"from":"account1", "to":"account2","quantity":"0.0001 EVD","memo":"#CONFIRM#"}' -p account1
 ```
 
-这可以用在一些场所的消费中，店家将客人应支付的款项直接锁定。客人只要同意这些支付信息就可以了。
+This may use in some shop. Shop can lock EVD of custom and custom confirm to pay.
 
-8，如果需要给一个子链的传输帐号做抵押，那么给 eoslocktoken 转账即可，memo中填写子链的 chain_id：
+8, If need to burn EVD and issue them in a side-chain, transfer EVD to eoslocktoken with chain_id of side-chain written in memo.
 
 ```
 cleos push action eoslocktoken transfer '{"from":"account1", "to":"eoslocktoken","quantity":"1.0000 EVD","memo":"b6a3a2e75f6fc47e7ef8b413ae4ee6eb3a8fefcd01c0b0ecdf688563cfa5f493"}' -p account1
 ```
 
-注意：一个帐号要抵押的子链 chain_id 必须第一次时写对，因为之后无法更改，再转账给 eoslocktoken 只会增加抵押的数量。
+Note: One account can only endorse for one side-chain. And must write correct chain id at the first time. It can not change. Transfer to eoslocktoken again will only increase the amount of EVD burned.
 
 <div id="hash"></div>
-9，#HASH# 表示哈希时间锁，设置一笔带密码的交易。在一段时间内任何人只要公布了密码，交易就会成功。否则，任何人都可以在时间到后回滚交易。
+9, Put "#HASH#" in front of memo to open a hash time lock transfer. It will not succeed until someone reveal the password which can calculate into checksum of hash. If timeout, anyone can rollback it.
 
 ```
-# account1 发送 account2 10个EVD，1天到期
+# account1 transfer account2 10 EVD with a hash lock of 1 day.
 cleos push action eoslocktoken transfer '{"from":"account1", "to":"account2","quantity":"10.0000 EVD","memo":"#HASH#2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824,86400"}' -p account1
 
-# 揭示了密码，交易完成 (任何人都可以揭示)
+# account3 reveal the key and resolve the transfer (Anyone can reveal, include account1 or account2)
 cleos push action eoslocktoken confirm '{"from":"account1", "to":"account2","key":"hello,world"}' -p account3
 
-# 或者时间到以后，有人取消了交易 (任何人都可以取消)
+# Or timeout, account3 cancel it (Anyone can cancel)
 cleos push action eoslocktoken confirm '{"from":"account1", "to":"account2","key":""}' -p account3
 
 ```
 
 
-### 限制加权
+### More weight for limitation
 
-当用户给自己的帐号设置 50% 以下的限制时，账户的代币不会被立刻取出，这时的投票比起那些随时可以被转走的帐号，有更大的加权。具体如下：
- ( 具体代码在合约 comments 中)
+When a user set its transfer limitation, its token can not transfer completely to another account. So it get more weight in vote in discuss contract. The weight as the following:
+ ( Code is in [discuss contract](comment.md) )
 
 ```
 
@@ -103,25 +103,26 @@ Other: 0.1;
 
 ```
 
-#### 状态检查
+#### Check Status
 
-用户数据共有三个表: lockss， timelockss 和 depositss，可用类似如下的命令进行查询。
+There are five tables in contract: lockss， timelockss, depositss, hashlockss, hashss, should check as the following:
 
 ```
 cleos get table eoslocktoken account1 lockss
 
 cleos get table eoslocktoken account1 timelockss
 
-# 这个命令不包括被锁的代币
+# This will not include locked token by another account
 cleos get currency balance eoslocktoken account1
 
-# 被锁的代币查询 (查询单个需要用 -L 和 -U 参数)
+# Locked token (May need -L and/or -U)
 cleos get table eoslocktoken eoslocktoken lockss
 
-# 查询抵押EVD的子链 (查询单个需要用 -L 和 -U 参数)
+# Check burned token for side-chain (May need -L and/or -U)
 cleos get table eoslocktoken eoslocktoken depositss
 ```
 
-#### 合约代币分配
+#### EVD Distribution
 
-详见 [EVR/EVD分配方案](evd_distribute.md)
+[EVR/EVD distribution](evd_distribute.md)
+

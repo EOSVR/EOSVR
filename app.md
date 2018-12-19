@@ -1,40 +1,37 @@
-## EVD 信用展示APP
+## EVD APP
 
 [English](app-en.md)
 
 
-有如下功能：
+It can:
 
-- 用户管理，包括上传头像和描述，展示二维码等；
+- Upload avatar and change user's description, show QRCode;
 
-- [交换各种代币](app_exchange.md)；
+- [Exchange tokens](app_exchange.md);
 
-- 扫描其他用户二维码，查看其他用户信用，并[交易代币或锁定代币](app_trade.md)；
+- Scan another user's token and check if they are trustable. Can [trade or lock token](app_trade.md) too;
 
-- 查看评论，并对其他用户评论，可以用 EVD 支持或反对，[点击查看详细说明](app_comment.md)；
+- View discuss and comment another account. Can use EVD to for or against others. [More info of discuss](app_comment.md);
 
-- [接收奖励](reward.md)；
-
-
-
-#### 用户信用证明
-
-因为帐号用来做信用背书，所以人们需要证明自己是帐号的主人。
-
-用户可以上传近期的图片，还可以在账户中加上一些说明文字来证明自己的身份。比如: 
-
-- 将自己的头像或者商店图片上传；
-
-- 写上地址、特征描叙等；
-
-
-用户可以生成二维码给其他人扫码（PublicKey），点击用户头像即可；
-
-也可以扫描其他人的二维码来查看他人信息；
+- [Receive rewards](reward.md);
 
 
 
-#### 备注
+#### Trust Ways
 
-本APP只需要与EOS网络交互，不需要其他服务器支持，完全去中心化；代码将开源，可以自行下载并用Unity编译。
+User can show QRCode to another, also can scan the QRCode of another.
+
+But because you use the account to let other trust you, you must prove you are the owner of this account.
+
+- You can upload a recent image of yourself. 
+
+- Also you can add some description in your account. Such as: write down your address and city, shop name , etc;
+
+
+
+#### Note
+
+This app will only communicate with EOS chain, do not use another service. It is decentralized.
+
+It will be open-source. Developer can download and build it with Unity.
 

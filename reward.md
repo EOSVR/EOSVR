@@ -1,52 +1,44 @@
-## EVD 奖励合约（eosvrrewards）
+## EVD Reward Contract（eosvrrewards）
 
-此合约用来：
-
-- 给 [comments 合约](comment.md) 设置奖励；
-
-- 给 comments 的前几名发送奖励；
+It is to set rewards and send rewards to top accounts supported in [discuss contract](comment.md);
 
 
-### 设置奖励
+### Set rewards
 
-直接将 EVD 发送给奖励合约（eosvrrewards），可以设置奖励。memo 中可以设置奖励的具体参数：
+Send EVD to eosvrrewards to set rewards, settings of rewards should be:
 
-参数依次为：
-  一次可发放的最多代币数量，评价合约，奖励间隔（秒），每次得到奖励的最大人数，奖励种类，每一千支持能得到的最多奖励
+  Maximum token per reward, Discuss Contract, Reward Interval(Second), Maximum number of accounts who can get reward, Reward Type, Reward Limit
 
-它们的默认值为：
-  30 EVD, eosvrcomment, 86400*7(7 days), 10(10个用户), 0(平均分配、可回撤), 10 (1%支持)
+Default values are:
+  30 EVD, eosvrcomment, 86400*7(7 days), 10(10 accounts), 0(average and can rollback), 10 (1%)
 
-示例：
+Example:
 
 ```
-# guest1111111 将用 10万 EVD 来奖励在 eosvrrewards 合约中最受支持的 10个人，每天奖励一次，每次共有1万 EVD发放，平分给10个人（type：0）
-# 所以，每人每次最多得到 1000 EVD。
-# 同时，guest1111111 在之后随时可以终止这个奖励活动(type=0时, 可回撤).
+# guest1111111 use 100K EVD to reward top 10 in eosvrcomment everyday. Every time 10K EVD will send to 10 accounts average.
+# Everyone can get 1000 EVD at most;
+# And, guest1111111 can stop this reward at any time (rewardtype=0).
 cleos push action eoslocktoken transfer '{"from":"guest1111111", "to":"eosvrrewards","quantity":"100000.0000 EVD","memo":"10000,eosvrcomment,84600,10,0"}' -p guest1111111
 ```
 
 
-### 奖励类型
+### Reward type
 
-奖励的发起者如果在奖励运行了一段时间后觉得不满意，可以选择撤回还没有发出的奖励。但只有偶数的类型可回撤，奇数的不可回撤。
+Only rewardtype is even, reward provider can withdraw the reward that do not send to others. If rewardtype is odd, it can not be revoked.
 
-比如：0可以撤回，1不行。
+Example: 0 can revoke, 1 can not revoke.
 
-下面是奖励的各种类型：
+When reward type is 2 or 3, the first account get 50%, second get 25%, others get the remain evenly;
 
-- 2-3, 第一名 50%, 第二名 25% , 其余平均；
+In other condition, all accounts get reward evenly. 
 
-- 其他, 平均分配。但当 type > 20 时，最大收益 = (支付 - 反对 * (type / 2 - 10)) * 支持转化率(默认1%)
+When type > 20, maximum reward of one account = (For - Against * (type / 2 - 10)) * rewardLimit(default: 10) / 1000 
 
-比如：EVD的主reward（evradvancers），就会使用 type = 41, 表示：不可撤回并且反对者的投票可以10倍有效于支持者。
+Example: evradvancers will use rewardtype = 41, it represent: vote of against is 10 times of for.
 
 ```
-# 实验，0.1G ，500K每周
+# Example, 0.1G EVD with 500K rewards per week
 cleos push action eoslocktoken transfer '{"from":"eosvrairdrop", "to":"eosvrrewards","quantity":"100000000.0000 EVD","memo":"500000,eosvrcomment,592200,20,41,10"}' -p eosvrairdrop
-
-# 全部，7.9G , 80M每周
-cleos push action eoslocktoken transfer '{"from":"eosvrairdrop", "to":"eosvrrewards","quantity":"7900000000.0000 EVD","memo":"80000000,evradvancers,592200,20,31,3"}' -p eosvrairdrop
 ```
 
 
