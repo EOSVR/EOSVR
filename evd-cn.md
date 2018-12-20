@@ -1,5 +1,7 @@
 ## EVD （eoslocktoken）
 
+[English](evd.md)
+
 EVD 合约，实现了互锁、限制转账、延时转账、交易锁等功能。
 
 合约代码在目录 locktoken 下。

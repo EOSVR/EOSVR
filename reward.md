@@ -1,5 +1,7 @@
 ## EVD Reward Contract（eosvrrewards）
 
+[中文](reward-cn.md)
+
 It is to set rewards and send rewards to top accounts supported in [discuss contract](comment.md);
 
 

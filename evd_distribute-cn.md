@@ -1,5 +1,7 @@
 ## EVD发放计划
 
+[English](evd_distribute.md)
+
 ### 介绍
 
 EVD是EOS链中的一种代币。它可以：

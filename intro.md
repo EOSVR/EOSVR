@@ -1,6 +1,6 @@
 ## Trust Solution
 
-This is a trust solution by providing a way to lock trust points of each other.
+[中文](intro-cn.md)
 
 ### Introduction
 

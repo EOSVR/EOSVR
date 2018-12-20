@@ -1,5 +1,7 @@
 ## EVD Distribution Plan
 
+[中文](evd_distribute-cn.md)
+
 ### Introduction
 
 EVD is a token in EOS chain. It can:

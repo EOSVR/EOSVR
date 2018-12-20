@@ -1,5 +1,7 @@
 ## EVD 奖励合约（eosvrrewards）
 
+[English](reward.md)
+
 此合约用来给 [讨论合约](comment-cn.md) 设置奖励，并给在讨论合约中被支持得最多的前几名发送奖励。
 
 

@@ -1,5 +1,7 @@
 ## EVD （eoslocktoken）
 
+[中文](evd-cn.md)
+
 EVD contract, can lock each other, limited transfer, delayed transfer, hash time lock for transfer.
 
 Contract code is in folder locktoken.

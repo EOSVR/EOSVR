@@ -1,5 +1,7 @@
 ## EVD Side-chain Solution
 
+[中文](sidelink-cn.md)
+
 #### Introduction
 
 Trust system may need several Giga accounts with several millions tps (transaction per seconds), but currently tps of EOS mainnet is only 4000. To increase tps, EVD use side-chain solution for it.
@@ -73,14 +75,14 @@ node linker.js
 
 ```
 
-(Script is in develop)
+(Script is testing, will release preview version in early of 2019)
 
   
 #### Across-chain transfer
 
 If A is linker, B in side-chain want to transfer EVD to C in mainnet. Steps are following:
 
-1, In side-chain, B transfer to A with memo "#HASH#{HASH},{timeout},{DEST}";
+1, In side-chain, B transfer to A with memo like: "#HASH#XXX...XXX,86400,C"; (If want to cross several chains, can use @ to separate them)
 
 2, Linker A finds the transfer. In main-chain, A transfer to C with same HASH;
 
@@ -92,16 +94,29 @@ If A is linker, B in side-chain want to transfer EVD to C in mainnet. Steps are 
 
 More info in [eoslocktoken](evd.md).
 
+At the transfer, the total amount of EVD of account A always equals the EVD A have in main chain at first. Example:
+
+- A have 250 EVD;
+
+- A send 100 EVD to eoslocktoken, sidechain issue 100 EVD to it. And main-chain 150, side-chain 100, total 250.
+
+- After B in side-chain send 10 EVD to main-chain C, and:
+
+  - Main-chain A = 150 - 10  = 140 EVD, 
+  
+  - Side-chain A = 100 + 10  = 110 EVD,
+  
+  - Total of A   = 140 + 110 = 250 EVD
 
 #### Hashed Time Lock Contract
 
-- Before a transaction, a user use a random text as password, and hash it to create a hash code;
+- Before a transaction, a user use a random text as password, and hash (sha256) it to create a hash code;
 
 - User put this hash code to a transaction and promise the transaction will confirm only when the password is revealed in a certain time;
 
 - Other related transactions can also use this hash code and promise;
 
-- The first user can wait all related transactions are ready, then reveal the password. After the password is revealed, all users can confirm the transaction.
+- The first user can wait till all related transactions are ready, then reveal the password. After the password is revealed, all users can confirm the transactions.
 
 
 [More info: EVD](evd.md#hash)。

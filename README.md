@@ -1,20 +1,18 @@
 ## Trust Solution - EVD
 
+[中文](README-cn.md)
+
 #### Introduction
 
-EVD is a [trust solution](intro.md). It has all functions of trust solution:
+EVD is a token in EOS chain to implement [trust solution](intro.md). 
+
+It can prove the account is limited trustworthy by:
 
 - Lock each other: One account can lock the token of another account;
 
-- Delay transfer: User can create a transfer with delay;
+- Limit the transfer: User can set the percent of tokens that can transfer out of account per month;
 
-- Limit the transfer: User can set the percent of tokens that can transfer per month;
-
-- Sync the transfer: To support the transfer across-chain, user can setup a transfer with a password and timeout. After that, user can reveal the password and confirm all related transfer, or do not reveal and fail all related transfer;
-
-- Fast execution: It is on EOS block-chain and a transfer only take several seconds. The confirmation of a transfer only takes less than one minute.
-
-- [Across Chain](sidelink.md): It allows a EOS chain can transfer EVD to another EOS chain. Such as: Account A in EOS main chain can transfer EVD to account B in another EOS chain, and transfer back. 
+- [Across-Chain](sidelink.md): It allows a EOS chain can transfer EVD to another EOS chain. Example: Account A in EOS main chain can transfer EVD to account B in another EOS side-chain, and transfer back. 
 
 This made it possible to create a wide-spread, low-cost trust network.
 
@@ -22,7 +20,7 @@ This made it possible to create a wide-spread, low-cost trust network.
 
 #### APP Support
 
-[APP EOSVR](app.md) will be the interface of trust solution. It is an APP used in Windows, MacOS, iPhone/iPad, Android. User can use it to transfer/lock/unlock EVD, and prove they are trustable.
+[APP EOSVR](app.md) will be the interface of trust solution. It is an APP used in Windows, MacOS, iPhone/iPad, Android. Users can use it to transfer/lock/unlock EVD, and prove they are trustable.
 
 It is in development. After release , it will be Open-Source. The contribution to this APP will be [rewarded](reward.md) too.
 
@@ -38,7 +36,13 @@ cleos push action eosvrtokenss transfer '{"from":"guest1111111", "to":"evrexchan
 
 EVR used the system contract like eosio.token. It does not have limit of transfer, and no lock feature. Some users may want to hold it instead of EVR.
 
-2, EOS can change to EVR and change back from contract [eosvrmarkets](ebancor.md). It is in testing now and only have several token in it.
+
+2, EOS can change to EVR and change back from contract [eosvrmarkets](ebancor.md). It is in testing now and only have several token in it. Still can try it like:
+
+```
+# Change 1 EOS to some EVR
+cleos push action eosio.token transfer '{"from":"guest1111111", "to":"eosvrmarkets","quantity":"1.0000 EOS","memo":""}' -p guest1111111
+```
 
 
 3，Get EVD by reward

@@ -1,7 +1,6 @@
 ## EVD APP
 
-[English](app-en.md)
-
+[中文](app-cn.md)
 
 It can:
 
