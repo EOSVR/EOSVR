@@ -1,0 +1,10 @@
+{
+  "name": "evrexchange",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "eb exchange.cpp"
+  },
+  "author": "EOSVR"
+}

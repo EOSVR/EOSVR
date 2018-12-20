@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ "$1" == "" ] ; then 
+	echo 
+	echo eb \[filename\]
+	echo example: eb a.cpp
+	echo 
+	exit
+fi
+
+b=`basename $1 .cpp`
+
+eosio-cpp -o $b.wasm $1 -I=/Users/dev1/git/eos/contracts -I=/usr/local/Cellar/boost/1.67.0_1/include -I=/Users/dev1/git/eos/build/contracts
+

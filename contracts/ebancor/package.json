@@ -1,0 +1,10 @@
+{
+  "name": "comments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "eb ebancor.cpp"
+  },
+  "author": "EOSVR"
+}
