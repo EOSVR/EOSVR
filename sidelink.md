@@ -10,7 +10,7 @@ Side-chain use the EVD in an account in EOS mainnet to endorse the side-chain is
 
 Like EOS mainnet, Side-chains are controlled by BPs (Block Producer) too. And all across-chain transfers are controlled by linker. The linker can be several in a side-chain. They must have accounts in both chains. 
 
-Linker will check if there are across-chain transfer and work in both chains to complete them. To prove the correction of transfer, will use [Hashed Time Lock Contract(HTLC)](#Hashed Time Lock Contract) to sync the transfer.
+Linker will check if there are across-chain transfer and work in both chains to complete them. To prove the correction of transfer, will use [Hashed Time Lock Contract(HTLC)](#hashed-time-lock-contract) to sync the transfer.
 
 To a simple EOS chain, it will be very low for a user. Example: 30K RAM and 10 transaction per day will only cost 0.02$ in one year. Link lots of EOS chain in this way, and we can setup an wide-spread, low-cost trust system.
 
@@ -23,7 +23,7 @@ To a simple EOS chain, it will be very low for a user. Example: 30K RAM and 10 t
 
 3, Account A in mainnet can apply for linker by:
 
-  a, In mainnet, transfer several EVD to account eoslocktoken (EVD contract). The memo of transfer is chain_id of side-chain. Because eoslocktoken will be locked, no one can transfer EVD out of it except mainnet BPs. It is a [one-way seg](#QA)；
+  a, In mainnet, transfer several EVD to account eoslocktoken (EVD contract). The memo of transfer is chain_id of side-chain. Because eoslocktoken will be locked, no one can transfer EVD out of it except mainnet BPs. It is a [one-way seg](#qa)；
   
   b, In side-chain, BPs use eoslocktoken issue same amount of EVD to account A, and mark A as a linker of this side-chain;
   
@@ -31,7 +31,7 @@ To a simple EOS chain, it will be very low for a user. Example: 30K RAM and 10 t
   
 4, Linker A deploy a server with its private-keys and run the following:
 
-  a, Check if there is a transfer to it in mainnet with [Hash Time Lock](#Hashed Time Lock Contract). If yes, create a transfer with same Hash Time Lock;
+  a, Check if there is a transfer to it in mainnet with [Hash Time Lock](#hashed-time-lock-contract). If yes, create a transfer with same Hash Time Lock;
   
   b, Check if someone confirm the transfer A created. If yes, confirm its source transfer with the same password;
   
