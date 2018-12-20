@@ -137,7 +137,7 @@ A: Hope this system can reward the people who provide true messages instead of g
 
 Q: In an innovation, some people will get profit, but there must be another people will get loss. Because people always hate loss, the people who gain will only support you limited (Example: 20% earning), but the people who loss will be against you fully (Example: 100% reject). In this way, no one will innovate. How to resolve ?
 
-A: Yes. The system is not suitable for an innovation condition. It is better for a common condition.
+A: These people can only discuss together and find a solution that can satisfy all sides, instead of vicious competition.
 
 
 Q: People will not know this system at the first. Because it is very different with current environment. How to resolve?
