@@ -19,7 +19,7 @@ EVD是一种部署在EOS链上的[信用解决方案](intro-cn.md)。
 
 #### 更多链接
 
-[合约EVD](https://github.com/EOSVR/sidechain/blob/master/contracts/locktoken/README-cn.md)：
+[合约EVD](https://github.com/EOSVR/sidechain/blob/master/contracts/locktoken/README-cn.md)
 
 [侧链搭建脚本与相关合约](https://github.com/EOSVR/sidechain)
 
