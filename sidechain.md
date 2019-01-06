@@ -1,12 +1,12 @@
 ## EVD Side-chain Solution
 
-[中文](sidelink-cn.md)
+[中文](sidechain-cn.md)
 
 #### Introduction
 
 Trust system may need several Giga accounts with several millions tps (transaction per seconds), but currently tps of EOS mainnet is only 4000. To increase tps, EVD use side-chain solution for it.
 
-Side-chain use the EVD in an account in EOS mainnet to endorse the side-chain is limited trustable, and increase the tps of whole EOS network.
+Side-chain use the EVD in an account in EOS mainnet to endorse the side-chain is limited trustworthy, and increase the tps of whole EOS network.
 
 Like EOS mainnet, Side-chains are controlled by BPs (Block Producer) too. And all across-chain transfers are controlled by linker. The linker can be several in a side-chain. They must have accounts in both chains. 
 
@@ -47,37 +47,11 @@ To a simple EOS chain, it will be very low for a user. Example: 30K RAM and 10 t
   b, Get side-chain address in linker's description in eosvrcomment: ``` cleos get table eosvrcomment account1 commentss ```
 
 
-These are scripts to create side-chains.
+These are scripts to create side-chains. It is:
+
+[https://github.com/EOSVR/sidechain](https://github.com/EOSVR/sidechain)
 
 
-#### Scripts to create side-chains
-  
-Please setup the following manually:
-
-- Setup a EOS chain;
-
-- BPs of EOS side-chain have EVD and limitation;
-
-- Linker send(burn) EVD to eoslocktoken and set its description (eosvrcomment);
-
-- BPs of side-chain issue EVD to linker in side-chain;
-  
-
-Run linker script in linux（tested in CentOS 7.3;
-
-```
-# Change config.js , write correct private keys , main-net address and side-chain address;
-
-# Run linker
-node linker.js
-
-# DONE
-
-```
-
-(Script is testing, will release preview version in early of 2019)
-
-  
 #### Across-chain transfer
 
 If A is linker, B in side-chain want to transfer EVD to C in mainnet. Steps are following:
@@ -92,7 +66,7 @@ If A is linker, B in side-chain want to transfer EVD to C in mainnet. Steps are 
 
 5, If in step 3, B do not confirm. Both transactions will be cancelled by linker A;
 
-More info in [eoslocktoken](evd.md).
+More info in [eoslocktoken](https://github.com/EOSVR/sidechain/blob/master/contracts/locktoken/README.md).
 
 At the transfer, the total amount of EVD of account A always equals the EVD A have in main chain at first. Example:
 
@@ -119,7 +93,7 @@ At the transfer, the total amount of EVD of account A always equals the EVD A ha
 - The first user can wait till all related transactions are ready, then reveal the password. After the password is revealed, all users can confirm the transactions.
 
 
-[More info: EVD](evd.md#hash)。
+[More info: EVD](https://github.com/EOSVR/sidechain/blob/master/contracts/locktoken/README.md#hash)。
 
 
 #### Verification of side-chain
@@ -156,7 +130,7 @@ Because BTC, ETH is slow to transfer, it is possible to help customs to transfer
 
 Steps like the following:
 
-- Account X1 in EOS chain have many EVD and limitation of transfer set. It is limited trustable;
+- Account X1 in EOS chain have many EVD and limitation of transfer set. It is limited trustworthy;
 
 - At ETH-chain, owner of X1 have an account: X2;
 
@@ -180,5 +154,5 @@ And EOS is used for vote, CPU and RAM. A side-chain also need EOS to calculate C
 
 Q: Where is the script to build side-chain?
 
-A: In development. Plan to release preview version at the end of 2018.
+A: https://github.com/EOSVR/sidechain
 

@@ -4,7 +4,7 @@
 
 ### Introduction
 
-We need to meet different persons or shops everyday. We need to judge if they are trustable. Current ways to judge like the following:
+We need to meet different persons or shops everyday. We need to judge if they are trustworthy. Current ways to judge like the following:
 
 - By clothing and behavior,
   But someone may dress up deliberately to cheat others;
@@ -75,11 +75,11 @@ This will help people to think the effect of long period, instead of short-term 
 
 #### Articles
 
-The trust account can make an article to be more trustable too.
+The trust account can make an article to be more trustworthy too.
 
-Now there are lots of fake news in network. If there is a trust account endorsing the article, the article is trustable. Because if it is a fake news, the victims (the people who read the news) will lock the trust points of account.
+Now there are lots of fake news in network. If there is a trust account endorsing the article, the article is trustworthy. Because if it is a fake news, the victims (the people who read the news) will lock the trust points of account.
 
-After there are enough articles that have trust account, users can select to view articles that have trust account. And will not be disturbed by untrustable articles.
+After there are enough articles that have trust account, users can select to view articles that have trust account. And will not be disturbed by untrustworthy articles.
 
 #### Other social issues
 
@@ -97,7 +97,7 @@ Because these behaviour will impact lots of people, even if only a small portion
 To implement these, trust system should have the following features:
 
 - Accounts can lock each other;
-  This make the account is trustable.
+  This make the account is trustworthy.
 
 - Restrict the amount of trust point to transport from an account to another;
   This make the account can not move all of their trust points to another account after they do evil;
@@ -111,45 +111,5 @@ To implement these, trust system should have the following features:
 This trust system will make our society better.
 
 [Solution Details](README.md)
-
-
-### Q/A
-
-Q: The account with lots of trust points may suppress normal persons and small shops.
-
-A: Single person can not be suppressed because they can change to another account. Small shops may be suppressed. At these time, they can reveal the evidence by network. And other accounts with lots of trust points can intervene.
-
-
-Q: What endorses the trust points? Why will we use it?
-
-A: Nothing endorse it. It is only an experiment to find if there is a way to create a better trust system in block-chain.
-
-
-Q: If you are kidnapped by cheaters, how to lock their accounts?
-
-A: This is only to resolve the small conflicts. And it is only limited trustable. It is useless when you are unsafe. The safety should be protected by the army or police.
-
-
-Q: In this system, people may tend to say good news and do not say bad news. Because bad news will make others unhappy. How to resolve it?
-
-A: Hope this system can reward the people who provide true messages instead of good messages. So in the reward system, may add some rewards to the people who report bad news. Hope it can work. Also hope the people who have lots of trust point can support the people who say bad and real news.
-
-
-Q: In an innovation, some people will get profit, but there must be another people will get loss. Because people always hate loss, the people who gain will only support you limited (Example: 20% earning), but the people who loss will be against you fully (Example: 100% reject). In this way, no one will innovate. How to resolve ?
-
-A: These people can only discuss together and find a solution that can satisfy all sides, instead of vicious competition.
-
-
-Q: People will not know this system at the first. Because it is very different with current environment. How to resolve?
-
-A: Now this system is only used for:
-
-  1, Create side-chains of EOS, and allow develops can use block-chain in traditional way;
-  
-  2, Endorse the transfer between side-chains;
-  
-  3, The trust of people in network;
-  
-  It will take a long time to extent it to real world. We must be familiar with it first. It is only a supplement that network (or real world) lack a way to revenge. It will not replace current system.
 
 

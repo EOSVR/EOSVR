@@ -4,3 +4,7 @@ ignore
 
 backup
 
+test.sh
+
+package-lock.json
+

@@ -1,6 +1,6 @@
 ## EVD的侧链实现
 
-[English](sidelink.md)
+[English](sidechain.md)
 
 #### 介绍
 
@@ -47,35 +47,9 @@
   b, 去连接者帐号查看侧链的具体地址:  ``` cleos get table eosvrcomment account1 commentss ```（放在 eosvrcomment 合约中，连接者可随时改动）
 
 
-可直接运行脚本来建立侧链。
+可直接运行脚本来建立侧链。请参考：
 
-  
-#### 侧链同步脚本  
-  
-本脚本用来同步两条EOS链的EVD转账。下列部分不在脚本中，请手动完成：
-
-- 普通的 EOS 链建立；
-
-- 侧链BP的EVD担保；
-
-- 连接者发送 EVD 到 eoslocktoken ；
-
-- 连接者手动修改自己的描叙；
-
-- 侧链给连接者发送 EVD ；
-  
-  
-在 CentOS 7.3 中：
-
-1, 修改 config.js ，填上连接者的私钥，主链地址列表，侧链地址列表
-
-
-2, 运行同步程序
-```
-node linker.js
-```
-
-（注：脚本还在测试中，将于2019年初发布预览版）
+[https://github.com/EOSVR/sidechain](https://github.com/EOSVR/sidechain)
 
   
 #### 跨链转账
@@ -92,7 +66,7 @@ node linker.js
 
 5, 如果步骤3中B一直不公开密钥，那么两个交易都将超时回滚；
 
-具体逻辑在[合约eoslocktoken](evd-cn.md)中。
+具体逻辑在[合约eoslocktoken](https://github.com/EOSVR/sidechain/blob/master/contracts/locktoken/README-cn.md)中。
 
 
 在这个过程中，连接者A的EVD总量是不变的。且正好等于连接者A最初在主链上的EVD数量。比如：
@@ -120,7 +94,7 @@ node linker.js
 
 这样，发起交易的一方可以等待，直到所有相关交易都准备好了，才公布密钥。密钥一旦公布，所有人都可以确认交易。
 
-详见 [EVD合约](evd-cn.md#hash)。
+详见 [EVD合约](https://github.com/EOSVR/sidechain/blob/master/contracts/locktoken/README-cn.md#hash)。
 
 
 #### 侧链的快速校验
@@ -179,5 +153,5 @@ EOS外的区块链中可能无法实现哈希时间锁的功能，所以这些�
 
 3，侧链的建立脚本在哪？
 
-答：还在开发中。大概 2018 年底会有预览版发布。
+答：https://github.com/EOSVR/sidechain
 
