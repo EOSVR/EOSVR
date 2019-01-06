@@ -19,24 +19,16 @@ The distribution of EVD is for the account who contribute to EVD system. More co
 
 - There is 10G (Same as EVR) EVD  issued by account eoslocktoken in EOS main-chain.
 
-- 1G have put into account: eosvr1111111 with delayed transfer. These EVD have been locked 0.5G for one year, and another 0.5G for two years. And the account have set the limitation that it can only transfer 1% per month after locks timeout.
-
-Command to check:
+- 1G have put into account: eosvr1111111 with delayed transfer. These EVD have been locked 0.5G for one year, and another 0.5G for two years. And the account have set the limitation that it can only transfer 1% per month after locks timeout. Command to check:
 
 ```
 cleos get table eoslocktoken eosvr1111111 timelockss
 ```
 
-
-- 1.1G are used for airdrop, experiments and EVR start plan. They are in account: eosvrairdrop.
-
-  - EVR start plan only received less than 300 EOS and failed. All efforts will change to EVD plan. EVR will still be a useful token because EVR can not be locked by another user and many users may like them;
-
-  - The airdrop started in July of 2018 have finished. All remain EVR in eosvrairdrop will change to EVR and put into comment account: evradvancer2. Like the following.
+- 0.05G are used for EOS mainnet airdrop (from July, 2018), experiments, exchange creation and EVD creation;
 
 
-- The remain 7.9G will change into EVD and reward the accounts who contribute to EVD system in the following years. Reward contract is [eosvrrewards](https://github.com/EOSVR/sidechain/blob/master/contracts/rewards/README.md).
-
+- The remain 8.95G EVD are all in reward plans to reward the accounts who contribute to EVD system in the following years. Reward contract is [eosvrrewards](https://github.com/EOSVR/sidechain/blob/master/contracts/rewards/README.md).
 
 
 #### Reward accounts details
@@ -49,11 +41,11 @@ Account eosvrrewards contains [the reward contract](https://github.com/EOSVR/sid
 cleos get table eosvrrewards eosvrrewards rewardss
 ```
 
-Every reward will send to different discuss contract, every discuss contract will discuss different types of contributions. The account have EVD can vote these discuss;
+Every reward will send to different comment contract, and every comment contract will contains different types of contributions. The account have EVD can vote these comments;
 
-The following are several discuss account:
+The following are several comment accounts:
 
-- eosvrcomment: Test only.
+- eosvrcomment: account can put its self-introduction here, and test rewards put here too;
 
 - evdadvancer1, evradvancers, evdpopulariz : Improvement plan. Used 50M, 50M and 100M EVD, send every 3 days and about last more than 1 year. Will send to top 20.
 Need apply and against multiply by 3.

@@ -94,7 +94,7 @@ cleos push action eosvrtokenss transfer '{"from":"guest1111111", "to":"evrexchan
 cleos transfer guest1111111 eosvrmarkets "1.0000 EOS" -p guest1111111
 ```
 
-- [eosvrcomment](https://github.com/EOSVR/sidechain/blob/master/contracts/comments/README.md): Discuss contract, everyone can use it to discuss another, also can use it to support/against another with EVD;
+- [eosvrcomment](https://github.com/EOSVR/sidechain/blob/master/contracts/comments/README.md): Comment contract, everyone can use it to discuss another, also can use it to support/against another with EVD;
 ```
 # guest1111111 write a description to himself: "I am guest1."
 cleos push action eosvrcomment comment '{"from":"guest1111111", "to":"guest1111111", "memo":"I am guest1."}' -p guest1111111
