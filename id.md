@@ -4,7 +4,7 @@
 
 To make an account trustworthy, it needs the following:
 
-- ID[@SidelinkID]: It is an identity to let others find me;
+- ID[@SideChain Linker Account]: It is an identity to let others find me;
 
 - Self Introduction: Prove it is my account, such as: I am a candy seller at 9 Street, Brooklyn, New York. And I am in blue;
 

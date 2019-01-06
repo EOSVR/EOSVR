@@ -12,17 +12,20 @@ It can prove the account is trustworthy by:
 
 - Limit the transfer: User can set the percent of tokens that can transfer out of account per month;
 
-- [Across-Chain](sidelink.md): It allows a EOS chain can transfer EVD to another EOS chain. Example:
+- [Across-Chain](sidechain.md): It allows a EOS chain can transfer EVD to another EOS chain. Example:
 Account A in EOS main chain can transfer EVD to account B in another EOS side-chain, and transfer back.
 
 This made it possible to create a wide-spread, low-cost trust network.
 
-[More info of contract EVD](https://github.com/EOSVR/sidechain/blob/master/contracts/locktoken/README.md).
+#### More Links
 
+[Contract EVD](https://github.com/EOSVR/sidechain/blob/master/contracts/locktoken/README.md)
 
-#### Demo Website
+[Script to build EOS Sidechain and related contracts](https://github.com/EOSVR/sidechain)
 
-[Account Check Across Chain](http://id.eosvr.io)
+[Account Query Across Chains](http://id.eosvr.io)
+
+[EVD distribution](evd_distribute.md)
 
 
 #### APP Support

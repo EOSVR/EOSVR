@@ -12,16 +12,20 @@ EVD是一种部署在EOS链上的[信用解决方案](intro-cn.md)。
 
 - 限制转出：用户可以设置账户每个月允许转出的百分比；
 
-- [跨链传输](sidelink-cn.md)：允许多个EOS链间进行交易。比如一个EOS主链上的账户A，可以把EVD传输给另一个EOS链上的账户B。
+- [跨链传输](sidechain-cn.md)：允许多个EOS链间进行交易。比如一个EOS主链上的账户A，可以把EVD传输给另一个EOS链上的账户B。
 
 这使得部署一个大范围、低成本的信用网络成为可行。
 
-更多合约信息: [合约EVD](https://github.com/EOSVR/sidechain/blob/master/contracts/locktoken/README-cn.md)：
 
+#### 更多链接
 
-#### 展示网站
+[合约EVD](https://github.com/EOSVR/sidechain/blob/master/contracts/locktoken/README-cn.md)：
+
+[侧链搭建脚本与相关合约](https://github.com/EOSVR/sidechain)
 
 [跨链帐号查询](http://id.eosvr.io)
+
+[EVD发布方案](evd_distribute.md)
 
 
 #### 支持APP
