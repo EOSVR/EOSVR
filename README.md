@@ -2,6 +2,8 @@
 
 [中文](README-cn.md)
 
+[APP Download](http://eosvr.io/index.html)
+
 #### Introduction
 
 EVD is a token in EOS chain to implement [trust solution](intro.md). 
@@ -23,16 +25,12 @@ This made it possible to create a wide-spread, low-cost trust network.
 
 [Script to build EOS Sidechain and related contracts](https://github.com/EOSVR/sidechain)
 
-[Account Query Across Chains](http://id.eosvr.io)
-
-[EVD distribution](evd_distribute.md)
-
 
 #### APP Support
 
 APP EOSVR will be the interface of trust solution. It is an APP used in Windows, MacOS, iPhone/iPad, Android. Users can use it to transfer/lock/unlock EVD, and prove they are trustworthy.
 
-It is in development. After release , it will be Open-Source. The contribution to this APP will be [rewarded](https://github.com/EOSVR/sidechain/blob/master/contracts/rewards/README.md) too.
+It is in development, [APP Download](http://eosvr.io/index.html)
 
 
 #### How to get it
@@ -69,8 +67,6 @@ It likes mining. But it does not need fast servers. It need contribution to EVD 
 
 It is in experiment and will reward very carefully.
 
-More info: [Contract eosvrrewards](https://github.com/EOSVR/sidechain/blob/master/contracts/rewards/README.md)
-
 More info about [EVD distribution](evd_distribute.md)
 
 
@@ -94,22 +90,12 @@ cleos push action eosvrtokenss transfer '{"from":"guest1111111", "to":"evrexchan
 cleos transfer guest1111111 eosvrmarkets "1.0000 EOS" -p guest1111111
 ```
 
-- [eosvrcomment](https://github.com/EOSVR/sidechain/blob/master/contracts/comments/README.md): Comment contract, everyone can use it to discuss another, also can use it to support/against another with EVD;
+- [eosvrcomment](https://github.com/EOSVR/sidechain/blob/master/contracts/comments/README.md): Comment contract, everyone can use it to comment another, also can use it to support/against another with EVD;
 ```
 # guest1111111 write a description to himself: "I am guest1."
 cleos push action eosvrcomment comment '{"from":"guest1111111", "to":"guest1111111", "memo":"I am guest1."}' -p guest1111111
 ```
 
-- [eosvrrewards](https://github.com/EOSVR/sidechain/blob/master/contracts/rewards/README.md): Reward contract, an reward provider can use it to send rewards to others;
-```
-# eosvrcomment provide a reward of 2000 EVD. It will send rewards to the top 5 in eosvrcomment every day. At this time, everyone can get at most 100 EVD per day.
-cleos push action eoslocktoken transfer '{"from":"eosvrcomment", "to":"eosvrrewards","quantity":"2000.0000 EVD","memo":"500,eosvrcomment,86400,5,1,10"}' -p eosvrcomment
-```
-
 ### Contact
-
-Twitter: https://twitter.com/EVD89490917
-
-Medium: https://medium.com/@eosvr
 
 Mail: contact@eosvr.io

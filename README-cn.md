@@ -2,6 +2,8 @@
 
 [English](README.md)
 
+[APP 测试版](http://eosvr.io/index-cn.html)
+
 #### 简介
 
 EVD是一种部署在EOS链上的[信用解决方案](intro-cn.md)。
@@ -23,16 +25,12 @@ EVD是一种部署在EOS链上的[信用解决方案](intro-cn.md)。
 
 [侧链搭建脚本与相关合约](https://github.com/EOSVR/sidechain)
 
-[跨链帐号查询](http://id.eosvr.io)
-
-[EVD发布方案](evd_distribute.md)
-
 
 #### 支持APP
 
 APP EOSVR 实现了上述合约的功能，它是一个可用于 Windows, MacOS, iPhone/iPad, Android 多平台的APP，用户可用它来进行传输，锁定（复仇），或者信用证明。
 
-这个APP还在开发中，APP的源码将开源。之后，对这个APP代码做贡献也将能获取 EVD。
+这个APP还在开发中，[测试版下载](http://eosvr.io/)。
 
 
 #### EVD获取方式
@@ -75,8 +73,6 @@ cleos push action eoslocktoken transfer '{"from":"guest1111111", "to":"eosvrmark
 
 本方式还在实验中，会非常谨慎地奖励。
 
-详见合约 [eosvrrewards](https://github.com/EOSVR/sidechain/blob/master/contracts/rewards/README-cn.md)。
-
 更多关于 [EVD分配方案](evd_distribute-cn.md)。
 
 
@@ -112,13 +108,6 @@ cleos push action eoslocktoken transfer '{"from":"guest1111111", "to":"eosvrmark
 ```
 # guest1111111 给自己写一段介绍: "I am guest1."
 cleos push action eosvrcomment comment '{"from":"guest1111111", "to":"guest1111111", "memo":"I am guest1."}' -p guest1111111
-```
-
-- [eosvrrewards](https://github.com/EOSVR/sidechain/blob/master/contracts/rewards/README-cn.md): 奖励用合约，奖励发起人可以使用这个合约对讨论用合约（eosvrcomment 或其他）的前几名或申请者进行奖励；
-
-```
-# eosvrcomment 发起的 Reward: 奖励共 2000 EVD，每天发送奖励给 eosvrcomment 排名的前5名，每人每次最多100 EVD
-cleos push action eoslocktoken transfer '{"from":"eosvrcomment", "to":"eosvrrewards","quantity":"2000.0000 EVD","memo":"500,eosvrcomment,86400,5,1,10"}' -p eosvrcomment
 ```
 
 ### 联系方式
